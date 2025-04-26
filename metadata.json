@@ -1,0 +1,22 @@
+[
+  {
+    "metadata": {
+      "originalName": "picture.jpg",
+      "extension": "jpg",
+      "size": 115821,
+      "timestamp": "2025-04-22T22:35:01.977725300"
+    },
+    "filePath": "C:\\OpalFolder\\KMUTT\\CPE112\\Java\\Project\\file\\EnPic.enc",
+    "hash": "+SianORcaXsrI84Dozr77e5/2e6a4buXmzU0vs2v8qo="
+  },
+  {
+    "metadata": {
+      "originalName": "video.mov",
+      "extension": "mov",
+      "size": 2438768,
+      "timestamp": "2025-04-22T22:32:48.858223100"
+    },
+    "filePath": "C:\\Users\\Lenovo\\Downloads\\EnVideo.enc",
+    "hash": "4+u0NpA/CXIEEXM4KFa73mjZ/GoBEI9H14qFllJ2/3w="
+  }
+]
