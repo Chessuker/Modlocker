@@ -1,10 +1,3012 @@
-[{
-  "metadata": {
-    "originalName": "video.mov",
-    "extension": "mov",
-    "size": 2438768,
-    "timestamp": "2025-04-27T00:08:14.785799400"
+[
+  {
+    "metadata": {
+      "originalName": "image_54.png",
+      "extension": "png",
+      "size": 5886,
+      "timestamp": "2025-04-27T23:53:12.862770200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_54.enc",
+    "hash": "+K/w+Kq//NXyg/6LZ16KUWBKKca5T1yO8hDkqDrJ4Qg="
   },
-  "filePath": "D:\\OpalFolder\\งานโอปปอ\\KMUTT\\CPE112\\Project\\Modlocker\\file\\EnVi.enc",
-  "hash": "F68CJweOlhU6YENw4DrGcW1KZHDjQHRH9053W2N9oSQ="
-}]
+  {
+    "metadata": {
+      "originalName": "file_47.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.585164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_47.enc",
+    "hash": "+lXUJAuApvnIB8OnqLxNdeCUDx/LymZ3QZ33STbJg3c="
+  },
+  {
+    "metadata": {
+      "originalName": "file_15.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.882164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_15.enc",
+    "hash": "+xFAnYpnNxnTtKqMx70yNGOpuhK8HBc+j5OJnh5jKDc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_60.png",
+      "extension": "png",
+      "size": 6512,
+      "timestamp": "2025-04-27T23:53:12.974770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_60.enc",
+    "hash": "/e/K21zHaXREpBGgyI74mOchWSxfkGh0ediY7mo2yKQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_36.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.354164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_36.enc",
+    "hash": "/v1a4Lg/LRVMdDsUh1ykQkeNZmI2hfvoqI7V6j90wWw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_3.png",
+      "extension": "png",
+      "size": 5781,
+      "timestamp": "2025-04-27T23:46:35.969412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_3.enc",
+    "hash": "04OgHnA4R27FoCbKTKyDl2BmjYAGbLFuOlfQ74OnHTI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_80.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.311164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_80.enc",
+    "hash": "09HCyM2qXQ63SC2HOeYk9SuMQ9BksyUUuVregoQdFrg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_23.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.060163900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_23.enc",
+    "hash": "0RQphzjAHpMNdJeIAgzsldq0gLS2N/m148X48Z5OPx4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_37.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.373164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_37.enc",
+    "hash": "0rHUktsVorD9oEtkln8qOJlr6Hx55S+SUKclN6rs/bw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_17.png",
+      "extension": "png",
+      "size": 5439,
+      "timestamp": "2025-04-27T23:53:12.217771700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_17.enc",
+    "hash": "0tdKHZ4zjSuOkvjhT3ToGHkbT0JzGIBeJzEnxrFGZ+0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_49.png",
+      "extension": "png",
+      "size": 6302,
+      "timestamp": "2025-04-27T23:46:36.320412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_49.enc",
+    "hash": "1TTx8Kyj99b9SUB3ZVumU+GBhvecEwW2hXthPnKXUQk="
+  },
+  {
+    "metadata": {
+      "originalName": "image_41.png",
+      "extension": "png",
+      "size": 5344,
+      "timestamp": "2025-04-27T23:46:36.194412800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_41.enc",
+    "hash": "28p96C3UdVHbVs1DoLHITcxcKPmCoY5vtpSg2uviJ6Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_43.png",
+      "extension": "png",
+      "size": 6148,
+      "timestamp": "2025-04-27T23:53:12.670769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_43.enc",
+    "hash": "2MsG9jZJ3BTCaEdoiblw4Ewmf5QnhAMZasAflUE6SsQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_68.png",
+      "extension": "png",
+      "size": 6605,
+      "timestamp": "2025-04-27T23:53:13.096769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_68.enc",
+    "hash": "2oPMFSteMdQUbTcDzxZew/tBH35WDpoCj97Mz5x+fQs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_8.png",
+      "extension": "png",
+      "size": 5828,
+      "timestamp": "2025-04-27T23:46:36.908253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_8.enc",
+    "hash": "30ldKsDog6uXgifbfrk+xwjBtulswNy/CwVI696SyXc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_74.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.177164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_74.enc",
+    "hash": "33zLwF563d7rKACZy9akz+cnWJftY/lYycO8TK4Hwug="
+  },
+  {
+    "metadata": {
+      "originalName": "image_16.png",
+      "extension": "png",
+      "size": 6097,
+      "timestamp": "2025-04-27T23:46:35.696260"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_16.enc",
+    "hash": "3OO0AOb2y1qJcKI7ldpLr0VqtvRhD1vwRvB1jkT9Ibg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_19.png",
+      "extension": "png",
+      "size": 6183,
+      "timestamp": "2025-04-27T23:46:35.749260100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_19.enc",
+    "hash": "45pmQlfVgFt1hKLkOFuo+A6/y/9V3F9L4mnooX2pdp4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_2.png",
+      "extension": "png",
+      "size": 5561,
+      "timestamp": "2025-04-27T23:46:35.766260400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_2.enc",
+    "hash": "4gGSzNqXQqM2xvDqsQVtNFJJDHaghRfPjTh++yHXmZs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_66.png",
+      "extension": "png",
+      "size": 5680,
+      "timestamp": "2025-04-27T23:46:36.629253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_66.enc",
+    "hash": "4i5PxpSxFV3BKufdOsBMfrDD+2xeXfxw6JUAHRL2SiQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_2.png",
+      "extension": "png",
+      "size": 5561,
+      "timestamp": "2025-04-27T23:53:12.265770300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_2.enc",
+    "hash": "4lib61+r9HA+IgC9YDKnUGTRjNKN7LNaz1UJ03wDykc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_55.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.759164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_55.enc",
+    "hash": "4umx9Rk1z/NBkzw5dG8vK8oaJ5hIFL2KxuLYz5Suh28="
+  },
+  {
+    "metadata": {
+      "originalName": "image_7.png",
+      "extension": "png",
+      "size": 5227,
+      "timestamp": "2025-04-27T23:46:36.715253900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_7.enc",
+    "hash": "5C6atQMuO3FIApB4QJq9F/0dQhCN/sA0vSbZgWh58+Q="
+  },
+  {
+    "metadata": {
+      "originalName": "image_33.png",
+      "extension": "png",
+      "size": 5709,
+      "timestamp": "2025-04-27T23:53:12.501769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_33.enc",
+    "hash": "5SS9O+3AEjmm15MwB80t6NiS+zaNsPC9+YSYnqX352Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_86.png",
+      "extension": "png",
+      "size": 6597,
+      "timestamp": "2025-04-27T23:53:13.431769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_86.enc",
+    "hash": "5YuJj3TD3Kgki40nLrfvAxL4qxmnVfZ0xcGKGuxo4uc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_11.png",
+      "extension": "png",
+      "size": 5024,
+      "timestamp": "2025-04-27T23:53:12.091771"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_11.enc",
+    "hash": "5cf2b7PnaSqSxN58PgI2ZfCwvEZr/JWsyOdGqPmdBB8="
+  },
+  {
+    "metadata": {
+      "originalName": "file_22.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.041164900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_22.enc",
+    "hash": "5gUn4FqLIk2FkWUKTIyRZYcjy4yfFt/PDGa3IftxMOM="
+  },
+  {
+    "metadata": {
+      "originalName": "file_84.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.388165200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_84.enc",
+    "hash": "5yxT7CIRJK51OtmSBW2PEBElpAsJ1tB3iwhrjrOwZOI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_96.png",
+      "extension": "png",
+      "size": 6712,
+      "timestamp": "2025-04-27T23:46:37.202254"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_96.enc",
+    "hash": "63tG0O/bbHB0SXnrUi4n7ljYsMjOFZBhtVGgFzHScKQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_30.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.228165200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_30.enc",
+    "hash": "6KDrbh1lyUlF5wL4dVO0JMUoMGDgvCFShjIqi4BFNI8="
+  },
+  {
+    "metadata": {
+      "originalName": "file_63.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.946165500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_63.enc",
+    "hash": "6a/dyPZwAzUS1dDv2+z6CCZjgwvu8oCH7lYWTssNC84="
+  },
+  {
+    "metadata": {
+      "originalName": "image_50.png",
+      "extension": "png",
+      "size": 6320,
+      "timestamp": "2025-04-27T23:53:12.796769400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_50.enc",
+    "hash": "6nG4vX/lWhM3qBkEOjm2SJy4GCmv0RWIoONt8x9L/38="
+  },
+  {
+    "metadata": {
+      "originalName": "image_76.png",
+      "extension": "png",
+      "size": 6261,
+      "timestamp": "2025-04-27T23:53:13.232770300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_76.enc",
+    "hash": "6osffycfOj4OIxR24uF1jEl6J+Hxq5L9mfOQUIIKWxw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_81.png",
+      "extension": "png",
+      "size": 6066,
+      "timestamp": "2025-04-27T23:53:13.325770300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_81.enc",
+    "hash": "75L0bVaKiQ2LTpfhgW1jx1HA2zYJ68lTXsT8Lu9XFmc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_47.png",
+      "extension": "png",
+      "size": 5592,
+      "timestamp": "2025-04-27T23:46:36.289412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_47.enc",
+    "hash": "7NEv1hJJlKwgoo3EbmPWvpWxK7iUufalZmGK7q0Wp1c="
+  },
+  {
+    "metadata": {
+      "originalName": "image_28.png",
+      "extension": "png",
+      "size": 6511,
+      "timestamp": "2025-04-27T23:46:35.937412700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_28.enc",
+    "hash": "7ZLu7nh3Q+I5ILheL0mx1w4LZ/fm4wfwsAqmItLvn08="
+  },
+  {
+    "metadata": {
+      "originalName": "image_80.png",
+      "extension": "png",
+      "size": 6518,
+      "timestamp": "2025-04-27T23:53:13.309770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_80.enc",
+    "hash": "7y4Yy7JdbQYJ6YxKUik0cAvS9kREmQrBuPgYnBXXxiA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_53.png",
+      "extension": "png",
+      "size": 6336,
+      "timestamp": "2025-04-27T23:53:12.846770400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_53.enc",
+    "hash": "8/jAB5meSpm+0HBUgYagr9qzZK7oZlvvPIWJGvtAPOg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_98.png",
+      "extension": "png",
+      "size": 6741,
+      "timestamp": "2025-04-27T23:46:37.236255500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_98.enc",
+    "hash": "89nJpyY97zHCycgkdz5xhKPmSzE0D6debNBnEwJ0FuU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_77.png",
+      "extension": "png",
+      "size": 5254,
+      "timestamp": "2025-04-27T23:46:36.861254800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_77.enc",
+    "hash": "8DbjJT3I1e6HkTkmIkxIH/uAg3NiQSdskS56ZFZBSCA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_68.png",
+      "extension": "png",
+      "size": 6605,
+      "timestamp": "2025-04-27T23:46:36.661254"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_68.enc",
+    "hash": "8EgMSAxp0p6Em1YdSzZScOqJIMW1BFg03TLZux9/AXA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_41.png",
+      "extension": "png",
+      "size": 5344,
+      "timestamp": "2025-04-27T23:53:12.639769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_41.enc",
+    "hash": "8Fs891UPY7DcBbJKqBOfvGMOTRUiCYJOqGXnZzlDXww="
+  },
+  {
+    "metadata": {
+      "originalName": "file_8.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:49.292164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_8.enc",
+    "hash": "8KCZWi2zQ9hYsdQfije++Jcw3TxIFeStVyFaZN+juy8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_99.png",
+      "extension": "png",
+      "size": 5842,
+      "timestamp": "2025-04-27T23:46:37.253255600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_99.enc",
+    "hash": "8gvhS/RfclFbWDrA12TX0lQmI2PxqqN3nuvBAuQxBgE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_3.png",
+      "extension": "png",
+      "size": 5781,
+      "timestamp": "2025-04-27T23:53:12.436769300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_3.enc",
+    "hash": "91JHyR2PNLNsjkDmRQDi68+k21SpTEY7SeIQ/TaLP/g="
+  },
+  {
+    "metadata": {
+      "originalName": "image_92.png",
+      "extension": "png",
+      "size": 6540,
+      "timestamp": "2025-04-27T23:46:37.136253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_92.enc",
+    "hash": "9NUwgWHoaLEsAC4aA1pLcrMU4UiK7zu+bB/DrC5fLg8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_40.png",
+      "extension": "png",
+      "size": 6088,
+      "timestamp": "2025-04-27T23:46:36.178412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_40.enc",
+    "hash": "9gKfZKpMAFBz1YxTrapxM7wQo8Zx9CkTopX7nzl2JHI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_29.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.189164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_29.enc",
+    "hash": "9l6dCgMbe9QPvbKg/CoYWn9pofcvbesfXtyzHm4cu6o="
+  },
+  {
+    "metadata": {
+      "originalName": "image_51.png",
+      "extension": "png",
+      "size": 5758,
+      "timestamp": "2025-04-27T23:46:36.367414700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_51.enc",
+    "hash": "9sE1bGHxzHtYoHqh1nHt8mhp8+p0WNb24tReDhZpWtg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_45.png",
+      "extension": "png",
+      "size": 5892,
+      "timestamp": "2025-04-27T23:53:12.700769400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_45.enc",
+    "hash": "A+0IAYhwZ6HTW/y+mwJLVEV3zNrmt1OAvqCUBg7UwiE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_17.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.922164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_17.enc",
+    "hash": "A5M5xJuJLOvS6cVuZvWxWjklAX3D7n5pPIMa5XODKuc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_37.png",
+      "extension": "png",
+      "size": 6200,
+      "timestamp": "2025-04-27T23:53:12.563769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_37.enc",
+    "hash": "AEJbuIwfR0db+1ctxYMbp+lXsTTBBRCjirSUS8+QVn0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_80.png",
+      "extension": "png",
+      "size": 6518,
+      "timestamp": "2025-04-27T23:46:36.927253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_80.enc",
+    "hash": "B6gldoInOFR4/uz3iXJqVVp7XXonOlIbICsqC9wUEJs="
+  },
+  {
+    "metadata": {
+      "originalName": "file_3.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:48.209165500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_3.enc",
+    "hash": "BYonfj2RCXZyUGHfWZ6lE2mKsSxt2M88OcHOa9kDtUE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_4.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:48.432164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_4.enc",
+    "hash": "Bg/n5AlZxBCmrM/xfb+gLDtFLBDoSV7frqL5sJU6ApM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_30.png",
+      "extension": "png",
+      "size": 6447,
+      "timestamp": "2025-04-27T23:46:35.984413500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_30.enc",
+    "hash": "CUnF6RHMefhdBd8SzvuklAiTDqMU553laVAxTtbv1BY="
+  },
+  {
+    "metadata": {
+      "originalName": "file_6.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:48.861164500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_6.enc",
+    "hash": "CxuWlSWPsmkH9QJKH7W33lnhhxgI1JrwNka7vsmCWMc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_56.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.778167500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_56.enc",
+    "hash": "CyCS/2ZHwLkurkDVcKikEZI7/Pp5Bkv0qn0ZkoapL5E="
+  },
+  {
+    "metadata": {
+      "originalName": "image_39.png",
+      "extension": "png",
+      "size": 6732,
+      "timestamp": "2025-04-27T23:53:12.594770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_39.enc",
+    "hash": "CzK8DDIVRH6Y9aCn505Z/g+6RjHf+OkVEwT7z+2v/GU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_39.png",
+      "extension": "png",
+      "size": 6732,
+      "timestamp": "2025-04-27T23:46:36.131412800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_39.enc",
+    "hash": "D8JCbPgmorxsLXKitVY3dEfcJKxPN8sBKKS2ChaTHk0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_90.png",
+      "extension": "png",
+      "size": 6567,
+      "timestamp": "2025-04-27T23:53:13.509769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_90.enc",
+    "hash": "DBXXxWgOHbRvCEXWwVWjY4wvebT9Og/7CaAXZ+uXhqg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_71.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.119164"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_71.enc",
+    "hash": "DEXqWi8x0HwN68LqTbjHQFgDvNAD6Fy6d9o5zoqDxPY="
+  },
+  {
+    "metadata": {
+      "originalName": "file_75.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.196164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_75.enc",
+    "hash": "DUYZQ040w+LKrDF1MJHAapZml4OP7NmMPjhM4Vqo1VU="
+  },
+  {
+    "metadata": {
+      "originalName": "file_68.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.043164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_68.enc",
+    "hash": "DiwXy1QoCtz2erhnN6oWLC8wWkX4QiiDryvFIhxrcxc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_59.png",
+      "extension": "png",
+      "size": 6431,
+      "timestamp": "2025-04-27T23:46:36.495333200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_59.enc",
+    "hash": "Dj+ct7xtBbOKv+JBpfzUZKHfbS4Yuu0449A+t1DpYIk="
+  },
+  {
+    "metadata": {
+      "originalName": "file_13.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.832165100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_13.enc",
+    "hash": "Dl3ndovKZOCU0D15oHQGFKfB+0rbxOk0ojeY/43WYNo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_48.png",
+      "extension": "png",
+      "size": 6251,
+      "timestamp": "2025-04-27T23:46:36.304412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_48.enc",
+    "hash": "E/YIiMDtqAdFC6IHEmwydSAWtoNwLfrZHybeGIVm7TM="
+  },
+  {
+    "metadata": {
+      "originalName": "file_11.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.782164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_11.enc",
+    "hash": "EMVoFO6d1oRRYS/rooJLXQ5NsxGAf0jidyWeb+Ehr8Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_5.png",
+      "extension": "png",
+      "size": 5530,
+      "timestamp": "2025-04-27T23:46:36.335412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_5.enc",
+    "hash": "EPv69y6Kc01k/up32xY9h3QhrFSl3Y6CpJwC/98Ne4Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_56.png",
+      "extension": "png",
+      "size": 6359,
+      "timestamp": "2025-04-27T23:53:12.896770100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_56.enc",
+    "hash": "F5VRdQR0Z5nG0S0I0WYRDpXXOriKDg/+1Nnn3SVgFT4="
+  },
+  {
+    "metadata": {
+      "originalName": "video.mov",
+      "extension": "mov",
+      "size": 2438768,
+      "timestamp": "2025-04-27T00:08:14.785799400"
+    },
+    "filePath": "D:\\OpalFolder\\งานโอปปอ\\KMUTT\\CPE112\\Project\\Modlocker\\file\\EnVi.enc",
+    "hash": "F68CJweOlhU6YENw4DrGcW1KZHDjQHRH9053W2N9oSQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_29.png",
+      "extension": "png",
+      "size": 6546,
+      "timestamp": "2025-04-27T23:46:35.954413400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_29.enc",
+    "hash": "FJvJT7HVO5deZ/VAqNbwxzhPe0d3wSuahK0utet8hNA="
+  },
+  {
+    "metadata": {
+      "originalName": "file_38.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.393164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_38.enc",
+    "hash": "FgrCekEx/yUGGlVp8VGC9RPpwld14siOtmMuYe+UWZo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_60.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.881164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_60.enc",
+    "hash": "FkE70hnFSiY8978n9lJvqeV0YkuTIVzce0tnL0OQ7Wg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_36.png",
+      "extension": "png",
+      "size": 6539,
+      "timestamp": "2025-04-27T23:53:12.547770700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_36.enc",
+    "hash": "Fr1K+C1ccPXNG9kR3XRHk4YGLl4eWfOK/aFYJTYdp7U="
+  },
+  {
+    "metadata": {
+      "originalName": "image_25.png",
+      "extension": "png",
+      "size": 6261,
+      "timestamp": "2025-04-27T23:46:35.889412900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_25.enc",
+    "hash": "Fsf6ATcTMGFyMga4t1nZhknscTId/REJMXBz+irjS4s="
+  },
+  {
+    "metadata": {
+      "originalName": "image_21.png",
+      "extension": "png",
+      "size": 5773,
+      "timestamp": "2025-04-27T23:53:12.296769300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_21.enc",
+    "hash": "FzQidIRo/1ZWSPeOYM9i3o33JF/fkPvQwfbk8eZo0wg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_46.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.566164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_46.enc",
+    "hash": "GDdoyV3EEdseJmqXNm81mvopAyGCxuacbtUt+tq+Wk0="
+  },
+  {
+    "metadata": {
+      "originalName": "file_5.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:48.643164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_5.enc",
+    "hash": "GKQIgh5T+AX0btQuup3pCidJXpHfZBBd/GSxNwxu0vo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_82.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.349163900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_82.enc",
+    "hash": "GMrePve73foRn0bfSM8Gbu6rlQKJjr4VsYhLg6ja7aA="
+  },
+  {
+    "metadata": {
+      "originalName": "file_91.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.542164900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_91.enc",
+    "hash": "GSiMHcixK73hCVJ21A2HpaFlBQg1C9C/H83bHmTIBpQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_67.png",
+      "extension": "png",
+      "size": 6239,
+      "timestamp": "2025-04-27T23:46:36.645253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_67.enc",
+    "hash": "GqDL/GUq/8xtFDVGx7lAAosgPVLJAgWVhY3zD4fYuCE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_85.png",
+      "extension": "png",
+      "size": 6392,
+      "timestamp": "2025-04-27T23:46:37.006253800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_85.enc",
+    "hash": "Gx6E1dLQgswCOZ42kT756GS0yViRgynOU2ap7gDlt/E="
+  },
+  {
+    "metadata": {
+      "originalName": "file_41.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.469163900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_41.enc",
+    "hash": "HAgyeAu5y7YEnlX5UwwRaw5ZaVaxTA6LNGd8Yob4QqU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_69.png",
+      "extension": "png",
+      "size": 6732,
+      "timestamp": "2025-04-27T23:46:36.676254"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_69.enc",
+    "hash": "HCDvULXE0MmBQT04h6Qmdsz+y7u1A7mOaJ9S4cjhVZ4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_88.png",
+      "extension": "png",
+      "size": 5753,
+      "timestamp": "2025-04-27T23:46:37.053253500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_88.enc",
+    "hash": "HPAwn6nE+jKEWxn4UCK2z9305HZgdY5HeDEYDVf0/Do="
+  },
+  {
+    "metadata": {
+      "originalName": "image_84.png",
+      "extension": "png",
+      "size": 6217,
+      "timestamp": "2025-04-27T23:53:13.398770100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_84.enc",
+    "hash": "HbOQUKy3ZZeqXfPMgbAuXvn+ASIdRaEKtn7XqSGMgoU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_65.png",
+      "extension": "png",
+      "size": 6375,
+      "timestamp": "2025-04-27T23:46:36.613253800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_65.enc",
+    "hash": "HyM83wzkgLlfSGSYbnh47IlPxdObTrhjdBi8wE+UrlI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_70.png",
+      "extension": "png",
+      "size": 6071,
+      "timestamp": "2025-04-27T23:53:13.141769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_70.enc",
+    "hash": "I0hhdS4WuB2B6MHjfEKoMekfDiXvohxw0QOBEknyEbk="
+  },
+  {
+    "metadata": {
+      "originalName": "file_83.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.369164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_83.enc",
+    "hash": "IIZQoPYQleF51w6xgDn/lA+SgyvkxsxtQxZyBeww4Hs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_52.png",
+      "extension": "png",
+      "size": 6253,
+      "timestamp": "2025-04-27T23:53:12.829769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_52.enc",
+    "hash": "IRd09DDQ4ro3KgqH0kdgHKh0pFOFPAFK2A0f3ismGAM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_95.png",
+      "extension": "png",
+      "size": 6425,
+      "timestamp": "2025-04-27T23:53:13.587770900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_95.enc",
+    "hash": "IcAd8Z1M+z/8jllDm3Gsr16n6iI9YQyD3qVY/D5hYbQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_70.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.100164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_70.enc",
+    "hash": "IwTWs2ckq5Bd26uvpsTgxXNL+XtrEu4Kyrw3FVWzinY="
+  },
+  {
+    "metadata": {
+      "originalName": "image_1.png",
+      "extension": "png",
+      "size": 4981,
+      "timestamp": "2025-04-27T23:53:11.935769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_1.enc",
+    "hash": "IwY4LYtamUKu5Q/EjDlFiZ8t90jYJoV3AdPvoVVaz/g="
+  },
+  {
+    "metadata": {
+      "originalName": "image_14.png",
+      "extension": "png",
+      "size": 5357,
+      "timestamp": "2025-04-27T23:46:35.661260500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_14.enc",
+    "hash": "JA8lmaKTnkyuzsXHKkAQ2+IMrv9ckrg4AiUDfqt5Fs8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_52.png",
+      "extension": "png",
+      "size": 6253,
+      "timestamp": "2025-04-27T23:46:36.383413100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_52.enc",
+    "hash": "JHljxonaXDxGyVAZufy4iO+wOtnOeL5Huk4RzQlr+9Q="
+  },
+  {
+    "metadata": {
+      "originalName": "file_45.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.546163900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_45.enc",
+    "hash": "JIWOpZd6SiM1V5AFz4cltWmyBEr1B4xGkW7PIQMMx1A="
+  },
+  {
+    "metadata": {
+      "originalName": "image_89.png",
+      "extension": "png",
+      "size": 6741,
+      "timestamp": "2025-04-27T23:53:13.479769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_89.enc",
+    "hash": "JOx4Pn3FBDChJU9dKEhlW7Wzip3OyxX8E/CqemLZy48="
+  },
+  {
+    "metadata": {
+      "originalName": "image_18.png",
+      "extension": "png",
+      "size": 6093,
+      "timestamp": "2025-04-27T23:46:35.730260700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_18.enc",
+    "hash": "Jk5kLN+ZmuS4tXaviRQht/mVAQHoBh/PZse8Xprhg7k="
+  },
+  {
+    "metadata": {
+      "originalName": "image_16.png",
+      "extension": "png",
+      "size": 6097,
+      "timestamp": "2025-04-27T23:53:12.201770300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_16.enc",
+    "hash": "JqN4FYVEieCjWLaGbMAd9KmCFMExF1G+COv2li4H6GI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_76.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.215164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_76.enc",
+    "hash": "K0bMZyKcbpbS54JZlXKZ4+4mzwgiJTo4ZZxgaikL7PA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_97.png",
+      "extension": "png",
+      "size": 6268,
+      "timestamp": "2025-04-27T23:53:13.618659300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_97.enc",
+    "hash": "KDNsfQXjRsljaI01cuP+z2iCbFZByoIuTdV5WlRFjS4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_18.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.942165300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_18.enc",
+    "hash": "KDOna+4bKH9Uow0nESE+DVLqannXh87ZhZr97cwcP7Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_13.png",
+      "extension": "png",
+      "size": 6013,
+      "timestamp": "2025-04-27T23:46:35.639260900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_13.enc",
+    "hash": "KhLZT6nc17yo0R2GbVMbKjAc5dopWLA3/1Onr2aXrms="
+  },
+  {
+    "metadata": {
+      "originalName": "image_47.png",
+      "extension": "png",
+      "size": 5592,
+      "timestamp": "2025-04-27T23:53:12.731769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_47.enc",
+    "hash": "KsVqjMEteF75csG415vmzI79OrdJaPlMIW0Tps4KEf8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_72.png",
+      "extension": "png",
+      "size": 5994,
+      "timestamp": "2025-04-27T23:46:36.763254800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_72.enc",
+    "hash": "Kxs2Ca3frZBumcQsoIy7Du1m2pZtlK142NvTKuUItX4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_62.png",
+      "extension": "png",
+      "size": 6465,
+      "timestamp": "2025-04-27T23:53:13.005769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_62.enc",
+    "hash": "KyXCzChYWYZ4oHNUQMMGxwAOMV7+nVvRKXJqJ/80a4c="
+  },
+  {
+    "metadata": {
+      "originalName": "file_21.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.021164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_21.enc",
+    "hash": "L2VcUI9F0luzHU73bJF++aUHMXeszoUwdnjxqMlwhUw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_38.png",
+      "extension": "png",
+      "size": 6558,
+      "timestamp": "2025-04-27T23:46:36.115412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_38.enc",
+    "hash": "LE1s+ZZLqDAIoCL2dBDdj2vP7oJIEoIZubA8/uBgWcM="
+  },
+  {
+    "metadata": {
+      "originalName": "file_64.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.965164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_64.enc",
+    "hash": "LOOXaTp52/lHN1UjayleZPeV4FtSSa0BOWX4ycxI70M="
+  },
+  {
+    "metadata": {
+      "originalName": "image_23.png",
+      "extension": "png",
+      "size": 6434,
+      "timestamp": "2025-04-27T23:46:35.856260900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_23.enc",
+    "hash": "LPAxza+zArfufebDVOchT3535UNBS5xSd1leK5vHm+8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_38.png",
+      "extension": "png",
+      "size": 6558,
+      "timestamp": "2025-04-27T23:53:12.579769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_38.enc",
+    "hash": "LVycyIEvdEr9BIxs40oObisSheo7b9C6LI+WU9mpbhE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_93.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.584553"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_93.enc",
+    "hash": "LnK5O2/LFFjHadHYXUdNpJkG0QYcc9H7d8t3fepAMjo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_78.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.253164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_78.enc",
+    "hash": "LyfpYmEKRHseD39X4uqYA4vqVM6S43stLBPTcKbn6T4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_91.png",
+      "extension": "png",
+      "size": 6159,
+      "timestamp": "2025-04-27T23:46:37.120253400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_91.enc",
+    "hash": "M720ZUPtkavgTVrszfSRhTMVWs7nDyFsWnoi7fv6/4o="
+  },
+  {
+    "metadata": {
+      "originalName": "file_27.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.138164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_27.enc",
+    "hash": "ME9OsA2TZ3fYLEBh/wEn4k1TNzbymC0rLbQNKil275k="
+  },
+  {
+    "metadata": {
+      "originalName": "image_67.png",
+      "extension": "png",
+      "size": 6239,
+      "timestamp": "2025-04-27T23:53:13.081770200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_67.enc",
+    "hash": "MFouAftnt61vbRIPpoM1FBCGFPXCse8hHJ8HfQkvV+E="
+  },
+  {
+    "metadata": {
+      "originalName": "file_57.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.798164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_57.enc",
+    "hash": "MMsf5MV3kR35PkkIt4GzX9qChaYU+7BX/RG4E/Z9zJ4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_73.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.158164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_73.enc",
+    "hash": "MmfVi+BSNc+A8u9NZcyMJVKBcArMVeUWJBCQI0ElyGE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_61.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.902164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_61.enc",
+    "hash": "MyujkR74pORhXkyaquTFSmg+6ITfozTKv3yG+66aOsQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_78.png",
+      "extension": "png",
+      "size": 6281,
+      "timestamp": "2025-04-27T23:53:13.264770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_78.enc",
+    "hash": "N+TPjYqK5ePGoG7gIPTfr9jlqiInw2mU4Sv3F41pzjU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_26.png",
+      "extension": "png",
+      "size": 6471,
+      "timestamp": "2025-04-27T23:46:35.905413100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_26.enc",
+    "hash": "NLhD+xwEEb4HB3KL9rMTDxj0JM4hMf9J363lYNZQaZw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_9.png",
+      "extension": "png",
+      "size": 5886,
+      "timestamp": "2025-04-27T23:46:37.083253400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_9.enc",
+    "hash": "NlH90QMyVKFd9O24TKprWBUW+P+PPk765nk7FxX/QG4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_27.png",
+      "extension": "png",
+      "size": 5982,
+      "timestamp": "2025-04-27T23:46:35.921413100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_27.enc",
+    "hash": "NpdwXE/a4anYEOBG2VZJpnxPD6T/db66CB8IZ50PLJI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_57.png",
+      "extension": "png",
+      "size": 5953,
+      "timestamp": "2025-04-27T23:46:36.462333800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_57.enc",
+    "hash": "OBu6b7aelMSSjHNK509HeIJPP8uGeIOSKdGtxyIr9MU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_32.png",
+      "extension": "png",
+      "size": 6419,
+      "timestamp": "2025-04-27T23:46:36.017413600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_32.enc",
+    "hash": "OS2394mTe5gL21Or3Rxq/JBhMnGI1sakcqisn9A6v1I="
+  },
+  {
+    "metadata": {
+      "originalName": "file_14.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.862164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_14.enc",
+    "hash": "P+G6JrPZy+oD7kuohOrF8q1yx910Jcr8QtIVzEwRMqY="
+  },
+  {
+    "metadata": {
+      "originalName": "file_25.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.099165100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_25.enc",
+    "hash": "PP40WM5ml55jzTZGdF/vg7T0S2Q/HQ//PSSsDk1bHZY="
+  },
+  {
+    "metadata": {
+      "originalName": "file_86.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.427164900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_86.enc",
+    "hash": "PhUPrxNZSFpurBl988qf+U+WWYWI2bVRrZ0HPz5c9Qo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_43.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.508164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_43.enc",
+    "hash": "Punj5fMZmgi0H9qb0CHTLnxvc7uQa5FsOLIt/L1eJRM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_17.png",
+      "extension": "png",
+      "size": 5439,
+      "timestamp": "2025-04-27T23:46:35.713261400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_17.enc",
+    "hash": "Q5PjvXPaZTlkuk84dnAoxKTQObb4yKGq5seg9pit98I="
+  },
+  {
+    "metadata": {
+      "originalName": "image_58.png",
+      "extension": "png",
+      "size": 6414,
+      "timestamp": "2025-04-27T23:46:36.478333500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_58.enc",
+    "hash": "Q8c9GPNb9P/5t5zRK0Lqne9h9YAYFnqO1YIPtcH169w="
+  },
+  {
+    "metadata": {
+      "originalName": "image_44.png",
+      "extension": "png",
+      "size": 5172,
+      "timestamp": "2025-04-27T23:46:36.242413400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_44.enc",
+    "hash": "QAzLWA9iApyNAk+2Q0Z7LXUFZYeIyxaqCvzURIp2ji4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_85.png",
+      "extension": "png",
+      "size": 6392,
+      "timestamp": "2025-04-27T23:53:13.415770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_85.enc",
+    "hash": "QI0fxfvIm9XkZYnCSOWCHS/tWTLJMHrhkGftrEQQxnY="
+  },
+  {
+    "metadata": {
+      "originalName": "image_79.png",
+      "extension": "png",
+      "size": 6287,
+      "timestamp": "2025-04-27T23:53:13.279770400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_79.enc",
+    "hash": "QMh14udZOpGrVgYpynjQIZ6iZZa4SS38CMx1senzebw="
+  },
+  {
+    "metadata": {
+      "originalName": "file_90.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.523164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_90.enc",
+    "hash": "QfXdPKZlsJQmn/mjSJM+YH/QH0z7KSJNnOMJ8KSv61Q="
+  },
+  {
+    "metadata": {
+      "originalName": "image_6.png",
+      "extension": "png",
+      "size": 5834,
+      "timestamp": "2025-04-27T23:53:12.959770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_6.enc",
+    "hash": "QsHYEDX35PxTPIiVXLmHU1VC29Dlh1WeORkMdeVLVhQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_50.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.662164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_50.enc",
+    "hash": "R4Pl8b0U2UjhxNPK08DRU8GXJY11EovJdsSzEtzPadk="
+  },
+  {
+    "metadata": {
+      "originalName": "image_49.png",
+      "extension": "png",
+      "size": 6302,
+      "timestamp": "2025-04-27T23:53:12.764769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_49.enc",
+    "hash": "RbIMBm4QDWuB1lUj64z9KPuV3VY3kfEci5ZipCYyRTk="
+  },
+  {
+    "metadata": {
+      "originalName": "image_92.png",
+      "extension": "png",
+      "size": 6540,
+      "timestamp": "2025-04-27T23:53:13.541772900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_92.enc",
+    "hash": "SQ0dx5IQljySOTmOprH4cDeY9EryI2cV+LQLYzkLlTw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_24.png",
+      "extension": "png",
+      "size": 5916,
+      "timestamp": "2025-04-27T23:46:35.872409300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_24.enc",
+    "hash": "SkRJiBY6Zq3Jm3fJK5fEkJSCD3zN6ujvhRxfJDOq7Vo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_73.png",
+      "extension": "png",
+      "size": 6203,
+      "timestamp": "2025-04-27T23:46:36.794253900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_73.enc",
+    "hash": "SvmaOsboxxxk/Lacu6M5sTC1SV/AT/jQdpzZSr5pCcs="
+  },
+  {
+    "metadata": {
+      "originalName": "file_59.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.840164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_59.enc",
+    "hash": "TBlEKaCtVBD9JNTkGqNAlRAc2/oq6XHah/5PiBlS54Q="
+  },
+  {
+    "metadata": {
+      "originalName": "file_31.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.248164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_31.enc",
+    "hash": "TjtNaYU63HJFlDilhfZb/egWHy11uy+5eB6c8qQwHAs="
+  },
+  {
+    "metadata": {
+      "originalName": "file_95.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.624551800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_95.enc",
+    "hash": "UKVM5bRBUgbgoVJmTiBWofqhGRsq+Ul9WwbGMxrGIxM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_63.png",
+      "extension": "png",
+      "size": 6544,
+      "timestamp": "2025-04-27T23:46:36.579253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_63.enc",
+    "hash": "UV4RWTS6syFC8sL/LiMU1mmYyjTPtFHD1Atbga8Bw70="
+  },
+  {
+    "metadata": {
+      "originalName": "file_24.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.080164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_24.enc",
+    "hash": "UcqF53OkBFZFb2BwRzX1d5IncmsmhA40Lhgimka3Mro="
+  },
+  {
+    "metadata": {
+      "originalName": "image_31.png",
+      "extension": "png",
+      "size": 6000,
+      "timestamp": "2025-04-27T23:46:36.001412400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_31.enc",
+    "hash": "UkXR7OXv3C8QxQoJAfsdUp49U2aZE7QJ8GBkAGZSbsw="
+  },
+  {
+    "metadata": {
+      "originalName": "file_77.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.233164"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_77.enc",
+    "hash": "UnC/4ez6D3kGEWkFchbkPjju5SnaI2XYYhFD+nUOFZI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_40.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.450164"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_40.enc",
+    "hash": "UnUStyeKPX0oUKnbZj/Pew5Zk5qKAJM01129uX1GfMw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_50.png",
+      "extension": "png",
+      "size": 6320,
+      "timestamp": "2025-04-27T23:46:36.351413900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_50.enc",
+    "hash": "UqKtUAXkhpxkEXHFQdYDzl6cd965AtdXP5h25va3tgQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_20.png",
+      "extension": "png",
+      "size": 6316,
+      "timestamp": "2025-04-27T23:53:12.281770400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_20.enc",
+    "hash": "VOkb95l+bqC92NpgOOrGsJkdQVBxWKUDfucSMBuwpGo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_9.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:49.504164900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_9.enc",
+    "hash": "WMxHKskzpFygNuHgB9U6b01bvcB7uMkuCrS8l5wUHJs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_60.png",
+      "extension": "png",
+      "size": 6512,
+      "timestamp": "2025-04-27T23:46:36.528253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_60.enc",
+    "hash": "WOFSYbY+uS2nrDrgGkEgh3kkpBzsqEurgykGoNPE65k="
+  },
+  {
+    "metadata": {
+      "originalName": "file_92.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.561165700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_92.enc",
+    "hash": "WWhVtH/R9rJjAnCsyY+E6tM7WdZHyzK/NpSZTvx93KE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_66.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.004164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_66.enc",
+    "hash": "X689KAymzGldEFst0lpJD6x9kzTupLgwn6mRs5fqlI0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_62.png",
+      "extension": "png",
+      "size": 6465,
+      "timestamp": "2025-04-27T23:46:36.562254200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_62.enc",
+    "hash": "XSJZJ1Sc5Xb/TwUA0uMly/SF1eoYp2Tz0cugRVYGbDM="
+  },
+  {
+    "metadata": {
+      "originalName": "file_53.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.720164500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_53.enc",
+    "hash": "XqtM4YiTvmm4Yo5kzsqGKpMZJX/t2FdROHQkM3QMPGk="
+  },
+  {
+    "metadata": {
+      "originalName": "file_1.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:47.583048700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_1.enc",
+    "hash": "Xz++qCI7cVwc2JJV72IyF2qI8zwkbQ//Gp5wUziVGUw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_53.png",
+      "extension": "png",
+      "size": 6336,
+      "timestamp": "2025-04-27T23:46:36.398412300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_53.enc",
+    "hash": "YWiHO6WDPmfHAhJCSXVZ7hGFpe9jRD13MSm1YmVGPsE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_71.png",
+      "extension": "png",
+      "size": 5421,
+      "timestamp": "2025-04-27T23:53:13.156769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_71.enc",
+    "hash": "YdlpA/bqT7UAe2AKWxVQ4ONMr8o1DIUTm5E2e7OC+B0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_42.png",
+      "extension": "png",
+      "size": 5940,
+      "timestamp": "2025-04-27T23:46:36.210412700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_42.enc",
+    "hash": "You1xbn+QKY5xL8vHqEAJ849jKFjhds2DbCd0gvM6UM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_70.png",
+      "extension": "png",
+      "size": 6071,
+      "timestamp": "2025-04-27T23:46:36.732253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_70.enc",
+    "hash": "YuUOEVAZ2hdNSko+pD9EL+5VOCeem8tg1imUmAnPca8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_78.png",
+      "extension": "png",
+      "size": 6281,
+      "timestamp": "2025-04-27T23:46:36.876253500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_78.enc",
+    "hash": "ZJ4JrR7rRo9ms032wqiG7INg7bD6IwgH2odQld+zgoc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_55.png",
+      "extension": "png",
+      "size": 5412,
+      "timestamp": "2025-04-27T23:53:12.880769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_55.enc",
+    "hash": "ZSNWdzKNOdSbTwpKiKbhCMELU8Gp7egyyZlogY3vJV4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_48.png",
+      "extension": "png",
+      "size": 6251,
+      "timestamp": "2025-04-27T23:53:12.747769200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_48.enc",
+    "hash": "Zt+uTH5czypSor7cz3eYNn/XmbFyyMa48BUIgDS/s1g="
+  },
+  {
+    "metadata": {
+      "originalName": "image_14.png",
+      "extension": "png",
+      "size": 5357,
+      "timestamp": "2025-04-27T23:53:12.156771800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_14.enc",
+    "hash": "a1r+agSuSRhplg5gqqw5uYmljZeDRsYIhHeEe6kVjdk="
+  },
+  {
+    "metadata": {
+      "originalName": "image_40.png",
+      "extension": "png",
+      "size": 6088,
+      "timestamp": "2025-04-27T23:53:12.624769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_40.enc",
+    "hash": "aTL2sNKdNbcANsI9JMCPSWcHEzBb0RF1gaCOWvN5+QI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_65.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.985164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_65.enc",
+    "hash": "afoR96Al8ci6ssTfjnkJ0yA1se+aCB4WSsvzyCyRKRg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_66.png",
+      "extension": "png",
+      "size": 5680,
+      "timestamp": "2025-04-27T23:53:13.065769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_66.enc",
+    "hash": "ailwTiyso+edRU/PewI8vpu3rJ2GJojucAHyvNWq5iU="
+  },
+  {
+    "metadata": {
+      "originalName": "file_39.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.412164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_39.enc",
+    "hash": "at4g6Jwux0lGDtaqcAMUvq+qAkFwSj/pyAZyPuuWR1Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_22.png",
+      "extension": "png",
+      "size": 5568,
+      "timestamp": "2025-04-27T23:46:35.840260300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_22.enc",
+    "hash": "b3Ngfy53Dnq3IfhyjHwKNWspasc6qzcMjW/rsyvTkFc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_42.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.489164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_42.enc",
+    "hash": "b7apuMbYWaKbTv+8Wvrgjl0W5jPxDDO7HkEElLFM9vA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_35.png",
+      "extension": "png",
+      "size": 6324,
+      "timestamp": "2025-04-27T23:53:12.532769400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_35.enc",
+    "hash": "bDZDxmvPIpvRjY932QzRyo/rsU3i6IbECQqyneb/wm0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_82.png",
+      "extension": "png",
+      "size": 6492,
+      "timestamp": "2025-04-27T23:53:13.341770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_82.enc",
+    "hash": "cG3PdGj3O/mV4lr1Zc2SjS5SGiz317S7JqcJcDUgmfI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_32.png",
+      "extension": "png",
+      "size": 6419,
+      "timestamp": "2025-04-27T23:53:12.486769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_32.enc",
+    "hash": "cMUzjZnY5ZRgiW1nRfedU2MHrM2ssxsccehWxwoBYPs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_8.png",
+      "extension": "png",
+      "size": 5828,
+      "timestamp": "2025-04-27T23:53:13.293769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_8.enc",
+    "hash": "cOoXcPFaAmI8JTgkNxHJj5c5OQx2mpAXCGf+OdzUnFk="
+  },
+  {
+    "metadata": {
+      "originalName": "file_99.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.705590900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_99.enc",
+    "hash": "cZbVnPzlrTfX5eSeausK5gfHtHnjYG+xA/j4d/84sw8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_29.png",
+      "extension": "png",
+      "size": 6546,
+      "timestamp": "2025-04-27T23:53:12.420771400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_29.enc",
+    "hash": "cpcoUZG1IRA5In91WEeRTBq1IwdzDvLpvBW9QsI0P3U="
+  },
+  {
+    "metadata": {
+      "originalName": "image_7.png",
+      "extension": "png",
+      "size": 5227,
+      "timestamp": "2025-04-27T23:53:13.126769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_7.enc",
+    "hash": "ctWpI3QljjXtypYrWP/10In+YJKxt7+tgpCuJWyfOA4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_54.png",
+      "extension": "png",
+      "size": 5886,
+      "timestamp": "2025-04-27T23:46:36.414413100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_54.enc",
+    "hash": "d9D390avIObI0jqvHeDU8NU3VHv1qBaezlfsMkR+75A="
+  },
+  {
+    "metadata": {
+      "originalName": "image_100.png",
+      "extension": "png",
+      "size": 6007,
+      "timestamp": "2025-04-27T23:46:35.574260100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_100.enc",
+    "hash": "dFZjBw0fCxmOT4oZ9yjmy02zBd5gL3Uf8yqDhLrsVL8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_88.png",
+      "extension": "png",
+      "size": 5753,
+      "timestamp": "2025-04-27T23:53:13.464769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_88.enc",
+    "hash": "dGHl0Fy1wAHchapYhS3jnHN6wwXfZDl1/BtXm6/p0T4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_63.png",
+      "extension": "png",
+      "size": 6544,
+      "timestamp": "2025-04-27T23:53:13.020769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_63.enc",
+    "hash": "dY4mzy3oZGYDU+iUJxP++ECvW9NXi3hVS7evp9UNjYE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_52.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.700164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_52.enc",
+    "hash": "dZ84IjB4UZRI5CWMIn3JPWzWHqKgiYo5sHpnVaspkKk="
+  },
+  {
+    "metadata": {
+      "originalName": "file_72.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.138163900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_72.enc",
+    "hash": "e5qDDjHE392vUCYyBayuk2qbjSMb31K82LqmbJstCT0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_34.png",
+      "extension": "png",
+      "size": 6120,
+      "timestamp": "2025-04-27T23:53:12.516769400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_34.enc",
+    "hash": "e6RoIMp3sZ3s+6uNb5W9iHEfO7w7e5vhfmN5ATElwSs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_42.png",
+      "extension": "png",
+      "size": 5940,
+      "timestamp": "2025-04-27T23:53:12.655770600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_42.enc",
+    "hash": "eDs+akT7aUnURHspZDoDNxJu8ZZmg9decUmVSwtqoto="
+  },
+  {
+    "metadata": {
+      "originalName": "file_26.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.119164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_26.enc",
+    "hash": "eG9K9Ls9UABVUDMw10ZjY1qjfP75/CqHD8sZmZlDDMY="
+  },
+  {
+    "metadata": {
+      "originalName": "image_74.png",
+      "extension": "png",
+      "size": 5580,
+      "timestamp": "2025-04-27T23:53:13.202770100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_74.enc",
+    "hash": "eGVjsYj8yWPNYRTChsGPutmh08P0sJeuWHGO+1MJWmA="
+  },
+  {
+    "metadata": {
+      "originalName": "file_100.txt",
+      "extension": "txt",
+      "size": 46,
+      "timestamp": "2025-04-28T00:13:47.755164500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_100.enc",
+    "hash": "eUD1bZ6UCuyC/gnHciyI5valrV7ZIdSrdiRvWM9BcI0="
+  },
+  {
+    "metadata": {
+      "originalName": "file_97.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.664552500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_97.enc",
+    "hash": "eb4Sqy47Z+jHuzbGHXUxFLmX0bnJEJwVuTYayySqapU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_22.png",
+      "extension": "png",
+      "size": 5568,
+      "timestamp": "2025-04-27T23:53:12.311769400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_22.enc",
+    "hash": "eoRP2REjWQIiU3KPmxzBpFB111oTpxBJH6vTOSF/k7g="
+  },
+  {
+    "metadata": {
+      "originalName": "file_62.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.923164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_62.enc",
+    "hash": "euA1pOEoTleCKueYk9j9/thKwnp5ApkxEGnuFjT9Aag="
+  },
+  {
+    "metadata": {
+      "originalName": "image_1.png",
+      "extension": "png",
+      "size": 4981,
+      "timestamp": "2025-04-27T23:46:35.365059600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_1.enc",
+    "hash": "f3QLgEjG5lKoCjaR96VqhpdDIEd5IPn1Q54ZX1McAFI="
+  },
+  {
+    "metadata": {
+      "originalName": "file_16.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.902165400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_16.enc",
+    "hash": "f546wjB3sAaAkFV37wmSi8rhUmvVlaPTlOYbGfdkVME="
+  },
+  {
+    "metadata": {
+      "originalName": "image_25.png",
+      "extension": "png",
+      "size": 6261,
+      "timestamp": "2025-04-27T23:53:12.358771600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_25.enc",
+    "hash": "f9jHRNqGcaj+cXGT490FHvicMbnEpidVdG0FD9+wrK0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_93.png",
+      "extension": "png",
+      "size": 6733,
+      "timestamp": "2025-04-27T23:53:13.556770600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_93.enc",
+    "hash": "fOLSAmFAt5yOhLhBf6bT4sSDXi4n5Yv68iYY1KifqGA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_99.png",
+      "extension": "png",
+      "size": 5842,
+      "timestamp": "2025-04-27T23:53:13.648658400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_99.enc",
+    "hash": "fn3JUvfUUY2wOOgAsITBR/h3CSTK4GMBEBixmXSq9+M="
+  },
+  {
+    "metadata": {
+      "originalName": "file_2.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:47.982166500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_2.enc",
+    "hash": "fwXWsEd+526n21lv0b0iw7tKICPvL0byB+VRTFON5H4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_44.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.528164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_44.enc",
+    "hash": "gH3yT5uJJDT7D7aoVRS8j6q24xf7Zb2715wHJFzVOJg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_34.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.314164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_34.enc",
+    "hash": "gHC+BQDp4HNeT99flwLNNUPE4DPiD+qg8/0pUB9WyPI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_61.png",
+      "extension": "png",
+      "size": 6074,
+      "timestamp": "2025-04-27T23:53:12.990770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_61.enc",
+    "hash": "gR3Biknx41n9b6+G3DilQEguTQnd3EFXghG+q5h0coo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_100.png",
+      "extension": "png",
+      "size": 6007,
+      "timestamp": "2025-04-27T23:53:12.066771700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_100.enc",
+    "hash": "gUQjZUMKsg6PfYFegnCR9RvrUJaUZ+F7NQ37AsuSSpE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_98.png",
+      "extension": "png",
+      "size": 6741,
+      "timestamp": "2025-04-27T23:53:13.633659500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_98.enc",
+    "hash": "gVi9lm9UutH/8BRt5w05E/b32hc0eDiH/7rsxqTLGFc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_97.png",
+      "extension": "png",
+      "size": 6268,
+      "timestamp": "2025-04-27T23:46:37.218254600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_97.enc",
+    "hash": "gVjCYYlGe4xci3JMjLZ4hleUPYdY5PDArYPQTQXBbm8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_43.png",
+      "extension": "png",
+      "size": 6148,
+      "timestamp": "2025-04-27T23:46:36.225412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_43.enc",
+    "hash": "gZA5HIWd0Ko21nekz0oyYUzJE+NHNKiVultNDE4tSnQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_90.png",
+      "extension": "png",
+      "size": 6567,
+      "timestamp": "2025-04-27T23:46:37.105254300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_90.enc",
+    "hash": "gyZaZtGvqJWKbNG8RsM5sCwuRgsQE05AffWxqhkw8MI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_73.png",
+      "extension": "png",
+      "size": 6203,
+      "timestamp": "2025-04-27T23:53:13.186769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_73.enc",
+    "hash": "h7fvhP0hjr7JR8kE4e7aIY1hWeqgW0pmlG5rmSQMmT0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_4.png",
+      "extension": "png",
+      "size": 5141,
+      "timestamp": "2025-04-27T23:46:36.148413"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_4.enc",
+    "hash": "hC08MetMX1/ZKB9ST1KHJAVLQRUZZhsRKECZqpq61iA="
+  },
+  {
+    "metadata": {
+      "originalName": "file_98.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.684551500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_98.enc",
+    "hash": "hOFC3xJSgScCkSIzVtrdN42q7iIYLzrXQa8dGu0zE5s="
+  },
+  {
+    "metadata": {
+      "originalName": "image_13.png",
+      "extension": "png",
+      "size": 6013,
+      "timestamp": "2025-04-27T23:53:12.135771700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_13.enc",
+    "hash": "haf9cXYWYA3zCf5YINKHUX6ivWDEgoWAHOIqg6ShGA4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_46.png",
+      "extension": "png",
+      "size": 6214,
+      "timestamp": "2025-04-27T23:53:12.716769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_46.enc",
+    "hash": "hi9D4MiZB8c4rWlScu4t9Fo6RAyrh+zXLByO+2t5C6g="
+  },
+  {
+    "metadata": {
+      "originalName": "image_82.png",
+      "extension": "png",
+      "size": 6492,
+      "timestamp": "2025-04-27T23:46:36.959253900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_82.enc",
+    "hash": "hzR0NJf2mWCqq2SvmzHlzvGzA1bZHKpwGD9aXevZKGM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_71.png",
+      "extension": "png",
+      "size": 5421,
+      "timestamp": "2025-04-27T23:46:36.747254200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_71.enc",
+    "hash": "iRNbOQGjmhC6szMIhsd+MDSrJtKwEJv482qjlp8T5ZU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_5.png",
+      "extension": "png",
+      "size": 5530,
+      "timestamp": "2025-04-27T23:53:12.780769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_5.enc",
+    "hash": "ipClH8/wBFX/GxSWGrPLvI/mmwJSjP/vduHjeJgb9nQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_49.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.624164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_49.enc",
+    "hash": "itkK/xkaAoSXdF7R/nvWYqA/+CeMgJ9cEPc1Op/KYOA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_65.png",
+      "extension": "png",
+      "size": 6375,
+      "timestamp": "2025-04-27T23:53:13.050769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_65.enc",
+    "hash": "j2zp5qjdqnlkTLyetOL26HSHHmfE8j+v7gx/bZ3Ii8Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_20.png",
+      "extension": "png",
+      "size": 6316,
+      "timestamp": "2025-04-27T23:46:35.782259900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_20.enc",
+    "hash": "jfbpnLapD8UjkFlNB8r7A40SRe4C3JaZtGLYlUIzIqI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_64.png",
+      "extension": "png",
+      "size": 6188,
+      "timestamp": "2025-04-27T23:46:36.596253900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_64.enc",
+    "hash": "k+42oLTGuWwfdW0H841b4Lpb14K8Zi0BZY+WaCaP6SE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_96.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.644552400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_96.enc",
+    "hash": "k6GPdDuOlDv4Q7j6n6akiNxmixZsL7VrpoRQovuRUng="
+  },
+  {
+    "metadata": {
+      "originalName": "image_12.png",
+      "extension": "png",
+      "size": 5791,
+      "timestamp": "2025-04-27T23:46:35.618260500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_12.enc",
+    "hash": "ka4jT82nX8ejOi+Zw8dhVuG0rz6dda+U8r6Hc9AYarc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_9.png",
+      "extension": "png",
+      "size": 5886,
+      "timestamp": "2025-04-27T23:53:13.494769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_9.enc",
+    "hash": "kggqrOck7DxT3xqVAd5AsrOJJ2Ex3B6H1Yvy/hMg+ao="
+  },
+  {
+    "metadata": {
+      "originalName": "image_59.png",
+      "extension": "png",
+      "size": 6431,
+      "timestamp": "2025-04-27T23:53:12.944769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_59.enc",
+    "hash": "kqFqbAoHk3/nQ2vJBK+jJa/kmrgKAbGde0NwnQbqZps="
+  },
+  {
+    "metadata": {
+      "originalName": "image_45.png",
+      "extension": "png",
+      "size": 5892,
+      "timestamp": "2025-04-27T23:46:36.257412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_45.enc",
+    "hash": "l7lOUY/w1Y5HI9mpK/k8ZbbsNw2ynaivj3SkCor6fKE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_10.png",
+      "extension": "png",
+      "size": 5916,
+      "timestamp": "2025-04-27T23:46:35.492656200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_10.enc",
+    "hash": "lC8FQxuK13xSFiUSUxQ/5nvwJTMMbZ55jDOarOz/3XY="
+  },
+  {
+    "metadata": {
+      "originalName": "image_56.png",
+      "extension": "png",
+      "size": 6359,
+      "timestamp": "2025-04-27T23:46:36.446159400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_56.enc",
+    "hash": "lDNYeJYmCLIeQYBYm5zqQZzrjiuhT8UdYkw4MsluR0s="
+  },
+  {
+    "metadata": {
+      "originalName": "file_32.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.269165900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_32.enc",
+    "hash": "lZGnaUvz6SOFV2TtKFy8Hf/1wlFsieqd39k/Q+xe9BQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_89.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.485164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_89.enc",
+    "hash": "lnf3GbHtd8vNShH8rpa/1R95pzgvABbMTpo4CrNlZ3E="
+  },
+  {
+    "metadata": {
+      "originalName": "image_15.png",
+      "extension": "png",
+      "size": 5771,
+      "timestamp": "2025-04-27T23:53:12.179769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_15.enc",
+    "hash": "lo6maZIInZAQi9h4SNRuLx46ZSZHdyxcydcJ5dgoyIc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_51.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.681164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_51.enc",
+    "hash": "locoqVB1cmwhmnPDC1eUIZSEXhhROmFoyQFLlOKfsLE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_93.png",
+      "extension": "png",
+      "size": 6733,
+      "timestamp": "2025-04-27T23:46:37.152254200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_93.enc",
+    "hash": "ltA5ll7JwIZ87JuN7Btx0R88DlEiJQyYdNAF6fgHedY="
+  },
+  {
+    "metadata": {
+      "originalName": "image_83.png",
+      "extension": "png",
+      "size": 6555,
+      "timestamp": "2025-04-27T23:46:36.974253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_83.enc",
+    "hash": "m6HmPnK3wgMT9ZZRhabFD1N8WbUCA6ekp1buyMQxNyM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_69.png",
+      "extension": "png",
+      "size": 6732,
+      "timestamp": "2025-04-27T23:53:13.111769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_69.enc",
+    "hash": "mBvd+z5GlS2G8AgGC1q8nu1+YbXbo1trDD+UJiyToU8="
+  },
+  {
+    "metadata": {
+      "originalName": "file_88.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.466164100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_88.enc",
+    "hash": "mFoT16uqvdzkw57tGZMZcKeeMhMzqqQNfcDnwjwFM+o="
+  },
+  {
+    "metadata": {
+      "originalName": "image_55.png",
+      "extension": "png",
+      "size": 5412,
+      "timestamp": "2025-04-27T23:46:36.430412600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_55.enc",
+    "hash": "mGPgbo1Og2itJ+J8YL014l3CZepypSnTU8nqt260j5g="
+  },
+  {
+    "metadata": {
+      "originalName": "file_19.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.962165900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_19.enc",
+    "hash": "mJqhVHh/huB5kdfYVywcIiX3M5cIBqt6ZNWpK25Lxtw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_86.png",
+      "extension": "png",
+      "size": 6597,
+      "timestamp": "2025-04-27T23:46:37.021253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_86.enc",
+    "hash": "mUg1640uDbHR3ABA1hsN6Cc3h2vyYLI9FntLCNZFLus="
+  },
+  {
+    "metadata": {
+      "originalName": "image_33.png",
+      "extension": "png",
+      "size": 5709,
+      "timestamp": "2025-04-27T23:46:36.033413300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_33.enc",
+    "hash": "mzSNxELHPrZBlwkmDgA7ysn7YnOQNcsnQIqGv4ZtMLw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_96.png",
+      "extension": "png",
+      "size": 6712,
+      "timestamp": "2025-04-27T23:53:13.602821300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_96.enc",
+    "hash": "n/Xs7Kg3zV/D2fpW2c1V5TScixfobc67O1SX2c87xc4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_27.png",
+      "extension": "png",
+      "size": 5982,
+      "timestamp": "2025-04-27T23:53:12.388769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_27.enc",
+    "hash": "n4wqY6EJsQ9FJylHHyBLb2VxtZNngsGFxy0wX0dXn58="
+  },
+  {
+    "metadata": {
+      "originalName": "image_84.png",
+      "extension": "png",
+      "size": 6217,
+      "timestamp": "2025-04-27T23:46:36.990256700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_84.enc",
+    "hash": "n8vomxk+NLMfARaW9LL5WoVoaAeFSN9L76S7VJXUdYU="
+  },
+  {
+    "metadata": {
+      "originalName": "file_10.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.663165"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_10.enc",
+    "hash": "nY3V6uMxl7yTlQm43c9PsM2pxBCz/GUJQw/U2GqcpVg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_36.png",
+      "extension": "png",
+      "size": 6539,
+      "timestamp": "2025-04-27T23:46:36.080412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_36.enc",
+    "hash": "nmrUbi6dojDyRNDeDuAegtFC2nYIlFOOYbOYlvxdRJM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_35.png",
+      "extension": "png",
+      "size": 6324,
+      "timestamp": "2025-04-27T23:46:36.064412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_35.enc",
+    "hash": "o19o5UeGp5uezrSOwuPT8qLtu8vsuYbe5DiWnJ10C5w="
+  },
+  {
+    "metadata": {
+      "originalName": "image_44.png",
+      "extension": "png",
+      "size": 5172,
+      "timestamp": "2025-04-27T23:53:12.685769700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_44.enc",
+    "hash": "oGzhwqbQuMYRlzdHiJP20e0q3otb06YdUYQN5pdFPXo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_6.png",
+      "extension": "png",
+      "size": 5834,
+      "timestamp": "2025-04-27T23:46:36.512254"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_6.enc",
+    "hash": "oVTi48L9GVvvPsdgk3yfsnse3iijaRlm1fIx7BEfZyc="
+  },
+  {
+    "metadata": {
+      "originalName": "file_33.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.289164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_33.enc",
+    "hash": "oVYR+E+y10zwuIHdGlAdRADw8cJ7wOUP45YvBQONZ6w="
+  },
+  {
+    "metadata": {
+      "originalName": "image_61.png",
+      "extension": "png",
+      "size": 6074,
+      "timestamp": "2025-04-27T23:46:36.545253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_61.enc",
+    "hash": "oaxiybjs4QMNveWaDKtkuHoo2GrqBPiFP/F/vHsKIMU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_64.png",
+      "extension": "png",
+      "size": 6188,
+      "timestamp": "2025-04-27T23:53:13.035775100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_64.enc",
+    "hash": "ogI3tW5nz92JKbcAgL7U3nRr4usMRgfmxmXsxCga3yw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_91.png",
+      "extension": "png",
+      "size": 6159,
+      "timestamp": "2025-04-27T23:53:13.525770800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_91.enc",
+    "hash": "oyz4QiLdtfQyWFyfMzBGRUBHmpWKY63GgmKekSi3AKQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_4.png",
+      "extension": "png",
+      "size": 5141,
+      "timestamp": "2025-04-27T23:53:12.609769500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_4.enc",
+    "hash": "p8mNketXnFL3pX2HEe/3STJuZyUwy7TE1UUCqq/PUHs="
+  },
+  {
+    "metadata": {
+      "originalName": "image_79.png",
+      "extension": "png",
+      "size": 6287,
+      "timestamp": "2025-04-27T23:46:36.892253700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_79.enc",
+    "hash": "pd3yzabsVkF3rl1huHdCIxG4uGMi5azZAPEFP8nl/+k="
+  },
+  {
+    "metadata": {
+      "originalName": "image_83.png",
+      "extension": "png",
+      "size": 6555,
+      "timestamp": "2025-04-27T23:53:13.358769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_83.enc",
+    "hash": "pj63DK8Vf6izzLOUWnTbwwa+3tgvmx2xWdSv9MqxoXE="
+  },
+  {
+    "metadata": {
+      "originalName": "image_94.png",
+      "extension": "png",
+      "size": 6287,
+      "timestamp": "2025-04-27T23:53:13.571770500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_94.enc",
+    "hash": "po5R+1w8EOCmRuZ4O5lIKuIjMpxpXNIXl1174F0atr8="
+  },
+  {
+    "metadata": {
+      "originalName": "file_7.txt",
+      "extension": "txt",
+      "size": 44,
+      "timestamp": "2025-04-28T00:13:49.081164300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_7.enc",
+    "hash": "pycQNYlTMpfUNl+Ztu6a3rIoclPp+giNdMos+hQ1i/M="
+  },
+  {
+    "metadata": {
+      "originalName": "file_67.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.023165100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_67.enc",
+    "hash": "qO7kPTFsN0lK5RBv/86/+fu2iJ907Fz+WyP1O54md8A="
+  },
+  {
+    "metadata": {
+      "originalName": "image_75.png",
+      "extension": "png",
+      "size": 5959,
+      "timestamp": "2025-04-27T23:46:36.828256100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_75.enc",
+    "hash": "qhHE3PO3sIcu0i8LRdBFCWemUU+W3Z6TgRcWK/MS0WQ="
+  },
+  {
+    "metadata": {
+      "originalName": "file_87.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.447164600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_87.enc",
+    "hash": "r+GZ22LqJvd55zp0VHNw7OKGzgfy5s33B2SxMpo2SUw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_19.png",
+      "extension": "png",
+      "size": 6183,
+      "timestamp": "2025-04-27T23:53:12.248770200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_19.enc",
+    "hash": "r7bwBJ7jomODtlDLXkVy9hydbxHwC2igEYwvvMCw/UE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_20.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.002164700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_20.enc",
+    "hash": "rS1/9h0aTDCu0vdd43qcFHdpqMTlqGhtdkZuCNawwXE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_85.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.407164"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_85.enc",
+    "hash": "rTYiU4lutA9PJ6Li+sgAmgGD4SWlaFO4YDd3QpC0iwg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_89.png",
+      "extension": "png",
+      "size": 6741,
+      "timestamp": "2025-04-27T23:46:37.068254100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_89.enc",
+    "hash": "rV2F2a2pR4hwAbxIK6yoFlaU/QcwbgtZrDoBAhBBbtA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_11.png",
+      "extension": "png",
+      "size": 5024,
+      "timestamp": "2025-04-27T23:46:35.597260300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_11.enc",
+    "hash": "rZ7w64QlbF6+zhi+ne7UiMHw5GmFDz4Sa8s8hMeX63U="
+  },
+  {
+    "metadata": {
+      "originalName": "image_81.png",
+      "extension": "png",
+      "size": 6066,
+      "timestamp": "2025-04-27T23:46:36.943253600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_81.enc",
+    "hash": "rdwxsq21qUFgKIitCtxkL2VUComGBxMMltaa2K7ut5w="
+  },
+  {
+    "metadata": {
+      "originalName": "image_24.png",
+      "extension": "png",
+      "size": 5916,
+      "timestamp": "2025-04-27T23:53:12.342769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_24.enc",
+    "hash": "rlaskgKB/fzzU7NLcYtyMYGDXCB7+OVsrJwitLsfzsM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_37.png",
+      "extension": "png",
+      "size": 6200,
+      "timestamp": "2025-04-27T23:46:36.099412800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_37.enc",
+    "hash": "t8byk3DQFe3AtQy0RtFuSklXKgNeX68+rVx8ogoyTKM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_94.png",
+      "extension": "png",
+      "size": 6287,
+      "timestamp": "2025-04-27T23:46:37.168253900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_94.enc",
+    "hash": "tLJ719DkVryBegGNx/c8mD/iDy2i7BNkNAQUGbT39kg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_21.png",
+      "extension": "png",
+      "size": 5773,
+      "timestamp": "2025-04-27T23:46:35.823260"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_21.enc",
+    "hash": "teeXSFAYSHOUCFtwjvg+gmlaKSYespgkB9GMf42HLbo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_28.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.158165400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_28.enc",
+    "hash": "tq8Hew9ZDu69ZVaJLF0Bf4gUg7IFAygbVsoPVKamTQg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_54.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.740165"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_54.enc",
+    "hash": "uEYs3/WkwFQgeZ52+3Cv4RrCSje+oEFKMd7w3YDaDmg="
+  },
+  {
+    "metadata": {
+      "originalName": "file_12.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:47.807164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_12.enc",
+    "hash": "uJvtk3Rn5+y6IZuSXG6W5UT12qeLfIJ+DrWAtD5ymeM="
+  },
+  {
+    "metadata": {
+      "originalName": "image_57.png",
+      "extension": "png",
+      "size": 5953,
+      "timestamp": "2025-04-27T23:53:12.913770100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_57.enc",
+    "hash": "uSuFpftRdd8TunApA5qG07/oopxdTisjb7E2NvePZmQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_77.png",
+      "extension": "png",
+      "size": 5254,
+      "timestamp": "2025-04-27T23:53:13.248770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_77.enc",
+    "hash": "uVIpyrZfsrDJV1Rsjbf+XRib7AONuWmXoyQY/r4NOnI="
+  },
+  {
+    "metadata": {
+      "originalName": "image_30.png",
+      "extension": "png",
+      "size": 6447,
+      "timestamp": "2025-04-27T23:53:12.455769800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_30.enc",
+    "hash": "v0zFP1sx8SzAY1gKu6y7g7jJ0cq9HoVk3i7CCjKIl64="
+  },
+  {
+    "metadata": {
+      "originalName": "file_58.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.820165"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_58.enc",
+    "hash": "v1FaLV/bGCzDENpQXRZeAp1z/nUjRcjGhtBPBFTeOf0="
+  },
+  {
+    "metadata": {
+      "originalName": "image_18.png",
+      "extension": "png",
+      "size": 6093,
+      "timestamp": "2025-04-27T23:53:12.232769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_18.enc",
+    "hash": "vaZcOEunXlLDE09Cu8uM49yMNXtUtw4KFRRgunpy1sw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_87.png",
+      "extension": "png",
+      "size": 6260,
+      "timestamp": "2025-04-27T23:46:37.036253800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_87.enc",
+    "hash": "vrNJNYDOqOxXVRzJy/Wu8a4hlBYt/kY74dmmzsJPARU="
+  },
+  {
+    "metadata": {
+      "originalName": "file_69.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.062164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_69.enc",
+    "hash": "vyfprYlwayaaSo3hrglg2RzogYO8zBfEyHYuRYp/k/4="
+  },
+  {
+    "metadata": {
+      "originalName": "image_75.png",
+      "extension": "png",
+      "size": 5959,
+      "timestamp": "2025-04-27T23:53:13.217770"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_75.enc",
+    "hash": "wPkWvelw67WcktiMO3Pr6VLjyaVvGuqmEsaLH9U3yIw="
+  },
+  {
+    "metadata": {
+      "originalName": "image_34.png",
+      "extension": "png",
+      "size": 6120,
+      "timestamp": "2025-04-27T23:46:36.048412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_34.enc",
+    "hash": "wSHhYZlIOdPxYhzNjXZXoH7w3wdVV9YCjdx57h4/Li8="
+  },
+  {
+    "metadata": {
+      "originalName": "image_76.png",
+      "extension": "png",
+      "size": 6261,
+      "timestamp": "2025-04-27T23:46:36.845255800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_76.enc",
+    "hash": "x9jYcwKu5h7RoIkDgzMHm8ymEfSzhq5OWdE3xXfuxWk="
+  },
+  {
+    "metadata": {
+      "originalName": "image_87.png",
+      "extension": "png",
+      "size": 6260,
+      "timestamp": "2025-04-27T23:53:13.449770500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_87.enc",
+    "hash": "x9t0c4DYG9pRkJP5W2FA1y1AGAxrXVEH9076i0P5AgQ="
+  },
+  {
+    "metadata": {
+      "originalName": "image_26.png",
+      "extension": "png",
+      "size": 6471,
+      "timestamp": "2025-04-27T23:53:12.373771700"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_26.enc",
+    "hash": "xB7QP5qTnNOVW6sU1QDKEi+xsqWNx2Ol/XU3d0WiQIo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_95.png",
+      "extension": "png",
+      "size": 6425,
+      "timestamp": "2025-04-27T23:46:37.185254200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_95.enc",
+    "hash": "xEBz+sk1wgvYUbJJvyDG651mqC0wrfWtdcyVhHQhFfc="
+  },
+  {
+    "metadata": {
+      "originalName": "image_58.png",
+      "extension": "png",
+      "size": 6414,
+      "timestamp": "2025-04-27T23:53:12.928769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_58.enc",
+    "hash": "xW5I4ky/k344UaX9lvz/gc5toK3jkdllFO5kwC0L8lE="
+  },
+  {
+    "metadata": {
+      "originalName": "file_48.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.605164800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_48.enc",
+    "hash": "xWAi+HgrMHvW2gawe6GOk82vxb0htR8UTc51bSclVGU="
+  },
+  {
+    "metadata": {
+      "originalName": "image_15.png",
+      "extension": "png",
+      "size": 5771,
+      "timestamp": "2025-04-27T23:46:35.680260500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_15.enc",
+    "hash": "xYIRx73idLOpuhYRCWy+B5l6NNeVrxSeenA++8ejlKg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_10.png",
+      "extension": "png",
+      "size": 5916,
+      "timestamp": "2025-04-27T23:53:12.012770600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_10.enc",
+    "hash": "xnVhfGUtqs1tRXZ/QUUn4MsxLhDmo93XKk+T7yQxKuo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_74.png",
+      "extension": "png",
+      "size": 5580,
+      "timestamp": "2025-04-27T23:46:36.811254100"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_74.enc",
+    "hash": "y1kUUF3tOFTe+Bb0Ojjbj7bhUvg90tSYguMyuXSr82w="
+  },
+  {
+    "metadata": {
+      "originalName": "image_72.png",
+      "extension": "png",
+      "size": 5994,
+      "timestamp": "2025-04-27T23:53:13.171769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_72.enc",
+    "hash": "y3t1bM2mzshCJREzT7ITKa2KAPqyzZbug0XNwJO7D6Y="
+  },
+  {
+    "metadata": {
+      "originalName": "image_23.png",
+      "extension": "png",
+      "size": 6434,
+      "timestamp": "2025-04-27T23:53:12.327770300"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_23.enc",
+    "hash": "yDOXaR9dSRbhWzTLcYPe6U21hxE7mssgaHNDHL3njUA="
+  },
+  {
+    "metadata": {
+      "originalName": "image_51.png",
+      "extension": "png",
+      "size": 5758,
+      "timestamp": "2025-04-27T23:53:12.813771"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_51.enc",
+    "hash": "yaTf1M4fywn1tVRwXUgGDs/AVHtUPc0/33ykgIr2Mpo="
+  },
+  {
+    "metadata": {
+      "originalName": "image_12.png",
+      "extension": "png",
+      "size": 5791,
+      "timestamp": "2025-04-27T23:53:12.113772800"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_12.enc",
+    "hash": "ym5iQ9ECrelwySvcoxADoCOLQv8qoAlVLd7rLOLXiGo="
+  },
+  {
+    "metadata": {
+      "originalName": "file_35.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:48.334164400"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_35.enc",
+    "hash": "z/Q1oM2OsyDnkHduQjZhy6y1vji9/PBup+tesfF1/VM="
+  },
+  {
+    "metadata": {
+      "originalName": "file_94.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.604552600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_94.enc",
+    "hash": "z9AaJYMZZKYZkQXv7e0VS/DovqFFMgP83MtoiNc0bt4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_79.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.272164200"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_79.enc",
+    "hash": "zVra3CKWmqkQpItp77Csoh5VLcSIUg4MZ6eN0urx/vg="
+  },
+  {
+    "metadata": {
+      "originalName": "image_31.png",
+      "extension": "png",
+      "size": 6000,
+      "timestamp": "2025-04-27T23:53:12.471769900"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_31.enc",
+    "hash": "zdVaF+OsKCJ3yBTb44q/giqfNFLv9qdgxmjxyfPan5s="
+  },
+  {
+    "metadata": {
+      "originalName": "image_28.png",
+      "extension": "png",
+      "size": 6511,
+      "timestamp": "2025-04-27T23:53:12.404769600"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_28.enc",
+    "hash": "zfACbJFcFTSTDiEU6I1SsjDBgkqqCfjgReXIjfvYT9s="
+  },
+  {
+    "metadata": {
+      "originalName": "image_46.png",
+      "extension": "png",
+      "size": 6214,
+      "timestamp": "2025-04-27T23:46:36.273412500"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output\\image_46.enc",
+    "hash": "ziv74+EJ5msQDsKtpdZtbx6bhLHohktXH7DdUCA//b4="
+  },
+  {
+    "metadata": {
+      "originalName": "file_81.txt",
+      "extension": "txt",
+      "size": 45,
+      "timestamp": "2025-04-28T00:13:49.330216"
+    },
+    "filePath": "D:\\OpalFolder\\test\\output_files\\file_81.enc",
+    "hash": "zjtq7gMO+Ph9H6pKyaSgUJWevQ/3aA8/IOzgR/avAv0="
+  }
+]

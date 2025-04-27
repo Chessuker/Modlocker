@@ -1,10 +1,9 @@
 import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Desktop;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,6 +11,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -27,9 +28,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -43,22 +41,17 @@ import javax.swing.border.EmptyBorder;
 import org.json.JSONObject;
 
 public class MainUI extends JFrame {
-    private JTextField inputFilePathField;
-    private JTextField outputFilePathField;
-    private JTextField outputFileNameField;
-    private JPasswordField passwordField;
-    private JTextArea outputArea;
-    private JCheckBox showPasswordCheckBox;
-    private JCheckBox deleteOriginalCheckBox;
-    private JLabel statusLabel;
+    private CardLayout cardLayout;
+    private JPanel cardPanel;
     private MetadataAVLTree metadataAVL;
+    private File[] enSelectedFiles;
+    private File[] deSelectedFiles;
 
     public MainUI() {
         setTitle("File Encryption/Decryption with Metadata");
-        setSize(600, 600); // เพิ่มขนาดเพื่อรองรับปุ่มใหม่
+        setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout(10, 10));
 
         metadataAVL = new MetadataAVLTree();
         metadataAVL.loadFromFile();
@@ -69,112 +62,308 @@ public class MainUI extends JFrame {
             e.printStackTrace();
         }
 
-        // Menu Bar
-        JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("File");
-        JMenuItem exitItem = new JMenuItem("Exit");
-        exitItem.addActionListener(e -> System.exit(0));
-        fileMenu.add(exitItem);
-        menuBar.add(fileMenu);
-        setJMenuBar(menuBar);
+        // ใช้ CardLayout สำหรับสลับหน้า
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel();
+        cardPanel.setLayout(cardLayout);
 
-        // Main Panel with GridBagLayout
-        JPanel mainPanel = new JPanel(new GridBagLayout());
-        mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        // สร้างหน้า MainMenu
+        JPanel mainMenuPanel = createMainMenuPanel();
+        cardPanel.add(mainMenuPanel, "MainMenu");
+
+        // สร้างหน้าสำหรับแต่ละหมวดหมู่
+        JPanel encryptPanel = createEncryptPanel();
+        cardPanel.add(encryptPanel, "Encrypt");
+
+        JPanel decryptPanel = createDecryptPanel();
+        cardPanel.add(decryptPanel, "Decrypt");
+
+        JPanel metadataPanel = createMetadataPanel();
+        cardPanel.add(metadataPanel, "Metadata");
+
+        JPanel organizationPanel = createOrganizationPanel();
+        cardPanel.add(organizationPanel, "Organization");
+
+        // เพิ่ม cardPanel ลงใน JFrame
+        add(cardPanel, BorderLayout.CENTER);
+
+        // แสดงหน้า MainMenu เป็นหน้าเริ่มต้น
+        cardLayout.show(cardPanel, "MainMenu");
+
+        // บันทึก metadata เมื่อปิดหน้าต่าง
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                metadataAVL.saveToFile();
+                System.exit(0);
+            }
+        });
+    }
+
+    // สร้างหน้า MainMenu
+    private JPanel createMainMenuPanel() {
+        JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
+        panel.setBorder(new EmptyBorder(50, 50, 50, 50));
+
+        JButton encryptButton = createStyledButton("Encrypt");
+        encryptButton.addActionListener(e -> cardLayout.show(cardPanel, "Encrypt"));
+        panel.add(encryptButton);
+
+        JButton decryptButton = createStyledButton("Decrypt");
+        decryptButton.addActionListener(e -> cardLayout.show(cardPanel, "Decrypt"));
+        panel.add(decryptButton);
+
+        JButton metadataButton = createStyledButton("Metadata");
+        metadataButton.addActionListener(e -> cardLayout.show(cardPanel, "Metadata"));
+        panel.add(metadataButton);
+
+        JButton organizationButton = createStyledButton("Organization");
+        organizationButton.addActionListener(e -> cardLayout.show(cardPanel, "Organization"));
+        panel.add(organizationButton);
+
+        JButton exitButton = createStyledButton("Exit");
+        exitButton.addActionListener(e -> {
+            metadataAVL.saveToFile();
+            System.exit(0);
+        });
+        panel.add(exitButton);
+
+        setFontForComponents(panel, new Font("Segoe UI", Font.BOLD, 16));
+        return panel;
+    }
+
+    // สร้างหน้า Encrypt
+    private JPanel createEncryptPanel() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setName("EncryptPanel");
+
+        JTextField inputFileField = new JTextField();
+        JTextField outputPathField = new JTextField();
+        JTextField newNameField = new JTextField();
+        JPasswordField passwordField = new JPasswordField();
+        JPasswordField confirmPasswordField = new JPasswordField();
+        JCheckBox showPasswordCheckBox = new JCheckBox("Show");
+        JCheckBox deleteOriginalCheckBox = new JCheckBox("Delete original file");
+        JTextArea outputArea = new JTextArea(10, 40);
+        JLabel statusLabel = new JLabel("Ready");
+
+        // Input Panel
+        JPanel inputPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Input File Path
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        mainPanel.add(new JLabel("Input File:"), gbc);
+        gbc.gridx = 0; gbc.gridy = 0;
+        inputPanel.add(new JLabel("Input File:"), gbc);
         gbc.gridx = 1;
         gbc.weightx = 1.0;
-        inputFilePathField = new JTextField();
-        inputFilePathField.setToolTipText("Select the file to encrypt, decrypt, or read");
-        mainPanel.add(inputFilePathField, gbc);
-        gbc.gridx = 2;
+        inputFileField.setEditable(false);
+        inputPanel.add(inputFileField, gbc);
         gbc.weightx = 0;
-        JButton browseInputButton = createStyledButton("Browse");
-        browseInputButton.addActionListener(new BrowseFileAction(inputFilePathField, true));
-        mainPanel.add(browseInputButton, gbc);
-
-        // Output Path
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        mainPanel.add(new JLabel("Output Path:"), gbc);
-        gbc.gridx = 1;
-        outputFilePathField = new JTextField();
-        outputFilePathField.setToolTipText("Select the destination folder for the output file");
-        mainPanel.add(outputFilePathField, gbc);
         gbc.gridx = 2;
-        JButton browseOutputButton = createStyledButton("Browse");
-        browseOutputButton.addActionListener(new BrowseFileAction(outputFilePathField, false));
-        mainPanel.add(browseOutputButton, gbc);
+        JButton browseInput = createStyledButton("Browse");
+        browseInput.addActionListener(new BrowseFileAction(inputFileField, newNameField, true, false));
+        inputPanel.add(browseInput, gbc);
 
-        // Output File Name
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        mainPanel.add(new JLabel("Output File Name:"), gbc);
+        gbc.gridx = 0; gbc.gridy = 1;
+        inputPanel.add(new JLabel("Output Path:"), gbc);
         gbc.gridx = 1;
-        outputFileNameField = new JTextField();
-        outputFileNameField.setToolTipText("Enter the name for the output file (optional, defaults to original name)");
-        mainPanel.add(outputFileNameField, gbc);
+        gbc.weightx = 1.0;
+        inputPanel.add(outputPathField, gbc);
+        gbc.weightx = 0;
         gbc.gridx = 2;
-        mainPanel.add(new JLabel(), gbc);
+        JButton browseOutput = createStyledButton("Browse");
+        browseOutput.addActionListener(new BrowseFileAction(outputPathField, newNameField, false, false));
+        inputPanel.add(browseOutput, gbc);
 
-        // Password
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        mainPanel.add(new JLabel("Password:"), gbc);
+        gbc.gridx = 0; gbc.gridy = 2;
+        inputPanel.add(new JLabel("New Name (for single file):"), gbc);
         gbc.gridx = 1;
-        passwordField = new JPasswordField();
-        passwordField.setToolTipText("Enter a password (minimum 8 characters)");
-        mainPanel.add(passwordField, gbc);
+        gbc.weightx = 1.0;
+        newNameField.setEnabled(false);
+        inputPanel.add(newNameField, gbc);
+        gbc.weightx = 0;
+
+        gbc.gridx = 0; gbc.gridy = 3;
+        inputPanel.add(new JLabel("Password:"), gbc);
+        gbc.gridx = 1;
+        gbc.weightx = 1.0;
+        inputPanel.add(passwordField, gbc);
+        gbc.weightx = 0;
         gbc.gridx = 2;
-        showPasswordCheckBox = new JCheckBox("Show");
+        inputPanel.add(showPasswordCheckBox, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 4;
+        inputPanel.add(new JLabel("Confirm Password:"), gbc);
+        gbc.gridx = 1;
+        inputPanel.add(confirmPasswordField, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 5;
+        inputPanel.add(new JLabel("Delete Original:"), gbc);
+        gbc.gridx = 1;
+        inputPanel.add(deleteOriginalCheckBox, gbc);
+
+        // Button Panel
+        JPanel buttonPanel = new JPanel(new WrapLayout());
+        JButton encryptFileButton = createStyledButton("Encrypt");
+        encryptFileButton.addActionListener(new EncryptAction(inputFileField, outputPathField, newNameField, passwordField, confirmPasswordField, deleteOriginalCheckBox, outputArea, statusLabel));
+        buttonPanel.add(encryptFileButton);
+
+        JButton backButton = createStyledButton("Back");
+        backButton.addActionListener(e -> cardLayout.show(cardPanel, "MainMenu"));
+        buttonPanel.add(backButton);
+
+        // Output Area
+        outputArea.setEditable(false);
+        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Log"));
+
+        // Status Bar
+        statusLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        // Show Password
         showPasswordCheckBox.addActionListener(e -> {
-            passwordField.setEchoChar(showPasswordCheckBox.isSelected() ? (char) 0 : '•');
+            boolean show = showPasswordCheckBox.isSelected();
+            passwordField.setEchoChar(show ? (char) 0 : '•');
+            confirmPasswordField.setEchoChar(show ? (char) 0 : '•');
         });
-        mainPanel.add(showPasswordCheckBox, gbc);
 
-        // Delete Original
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        mainPanel.add(new JLabel("Delete Original:"), gbc);
+        // Add components
+        panel.add(inputPanel, BorderLayout.NORTH);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(statusLabel, BorderLayout.SOUTH);
+        panel.add(buttonPanel, BorderLayout.PAGE_END);
+
+        setFontForComponents(panel, new Font("Segoe UI", Font.PLAIN, 14));
+        return panel;
+    }
+
+    // สร้างหน้า Decrypt
+    private JPanel createDecryptPanel() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setName("DecryptPanel");
+
+        JTextField inputFileField = new JTextField();
+        JTextField outputPathField = new JTextField();
+        JPasswordField passwordField = new JPasswordField();
+        JCheckBox showPasswordCheckBox = new JCheckBox("Show");
+        JCheckBox deleteOriginalCheckBox = new JCheckBox("Delete original file");
+        JTextArea outputArea = new JTextArea(10, 40);
+        JLabel statusLabel = new JLabel("Ready");
+
+        // Input Panel
+        JPanel inputPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.gridx = 0; gbc.gridy = 0;
+        inputPanel.add(new JLabel("Input File:"), gbc);
         gbc.gridx = 1;
-        deleteOriginalCheckBox = new JCheckBox("Delete original file after operation");
-        deleteOriginalCheckBox.setToolTipText("Securely delete the input file after encryption or decryption");
-        mainPanel.add(deleteOriginalCheckBox, gbc);
+        gbc.weightx = 1.0;
+        inputFileField.setEditable(false);
+        inputPanel.add(inputFileField, gbc);
+        gbc.weightx = 0;
+        gbc.gridx = 2;
+        JButton browseInput = createStyledButton("Browse");
+        browseInput.addActionListener(new BrowseFileAction(inputFileField, null, true, true));
+        inputPanel.add(browseInput, gbc);
 
-        // Buttons
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
-        JButton encryptButton = createStyledButton("Encrypt");
-        encryptButton.setBackground(new Color(50, 150, 50));
-        encryptButton.setForeground(Color.BLACK);
-        encryptButton.addActionListener(new EncryptAction());
-        buttonPanel.add(encryptButton);
+        gbc.gridx = 0; gbc.gridy = 1;
+        inputPanel.add(new JLabel("Output Path:"), gbc);
+        gbc.gridx = 1;
+        gbc.weightx = 1.0;
+        inputPanel.add(outputPathField, gbc);
+        gbc.weightx = 0;
+        gbc.gridx = 2;
+        JButton browseOutput = createStyledButton("Browse");
+        browseOutput.addActionListener(new BrowseFileAction(outputPathField, null, false, true));
+        inputPanel.add(browseOutput, gbc);
 
-        
+        gbc.gridx = 0; gbc.gridy = 2;
+        inputPanel.add(new JLabel("Password:"), gbc);
+        gbc.gridx = 1;
+        gbc.weightx = 1.0;
+        inputPanel.add(passwordField, gbc);
+        gbc.weightx = 0;
+        gbc.gridx = 2;
+        inputPanel.add(showPasswordCheckBox, gbc);
 
+        gbc.gridx = 0; gbc.gridy = 3;
+        inputPanel.add(new JLabel("Delete Original:"), gbc);
+        gbc.gridx = 1;
+        inputPanel.add(deleteOriginalCheckBox, gbc);
+
+        // Button Panel
+        JPanel buttonPanel = new JPanel(new WrapLayout());
         JButton decryptButton = createStyledButton("Decrypt");
-        decryptButton.setBackground(new Color(50, 50, 150));
-        decryptButton.setForeground(Color.BLACK);
-        decryptButton.addActionListener(new DecryptAction());
+        decryptButton.addActionListener(new DecryptAction(inputFileField, outputPathField, passwordField, deleteOriginalCheckBox, outputArea, statusLabel));
         buttonPanel.add(decryptButton);
 
         JButton readButton = createStyledButton("Read");
-        readButton.setBackground(new Color(150, 100, 50));
-        readButton.setForeground(Color.BLACK);
-        readButton.addActionListener(new ReadAction());
+        readButton.addActionListener(new ReadAction(inputFileField, passwordField, deleteOriginalCheckBox, outputArea, statusLabel));
         buttonPanel.add(readButton);
 
+        JButton backButton = createStyledButton("Back");
+        backButton.addActionListener(e -> cardLayout.show(cardPanel, "MainMenu"));
+        buttonPanel.add(backButton);
+
+        // Output Area
+        outputArea.setEditable(false);
+        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Log"));
+
+        // Status Bar
+        statusLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        // Show Password
+        showPasswordCheckBox.addActionListener(e -> {
+            passwordField.setEchoChar(showPasswordCheckBox.isSelected() ? (char) 0 : '•');
+        });
+
+        // Add components
+        panel.add(inputPanel, BorderLayout.NORTH);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(statusLabel, BorderLayout.SOUTH);
+        panel.add(buttonPanel, BorderLayout.PAGE_END);
+
+        setFontForComponents(panel, new Font("Segoe UI", Font.PLAIN, 14));
+        return panel;
+    }
+
+    // สร้างหน้า Metadata
+    private JPanel createMetadataPanel() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        JTextField inputFileField = new JTextField();
+        JTextArea outputArea = new JTextArea(10, 40);
+        JLabel statusLabel = new JLabel("Ready");
+
+        // Input Panel
+        JPanel inputPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.gridx = 0; gbc.gridy = 0;
+        inputPanel.add(new JLabel("Input File:"), gbc);
+        gbc.gridx = 1;
+        gbc.weightx = 1.0;
+        inputFileField.setToolTipText("Select the file to read metadata");
+        inputPanel.add(inputFileField, gbc);
+        gbc.weightx = 0;
+        gbc.gridx = 2;
+        JButton browseInput = createStyledButton("Browse");
+        browseInput.addActionListener(new BrowseFileAction(inputFileField, null, true, false));
+        inputPanel.add(browseInput, gbc);
+
+        // Button Panel
+        JPanel buttonPanel = new JPanel(new WrapLayout());
         JButton showMetadataButton = createStyledButton("Show Metadata");
-        showMetadataButton.setBackground(new Color(100, 100, 200));
-        showMetadataButton.setForeground(Color.BLACK);
         showMetadataButton.addActionListener(e -> {
-            String inputFilePath = inputFilePathField.getText().trim();
+            String inputFilePath = inputFileField.getText().trim();
             if (inputFilePath.isEmpty()) {
                 showError("Please select an input file");
                 return;
@@ -209,10 +398,51 @@ public class MainUI extends JFrame {
         });
         buttonPanel.add(showMetadataButton);
 
-        // ใหม่: ปุ่มสำหรับการเรียงลำดับ
+        JButton clearMetadataButton = createStyledButton("Clear Metadata");
+        clearMetadataButton.addActionListener(e -> {
+            try {
+                metadataAVL.cleanInvalidMetadata();
+                outputArea.append("Cleaned invalid metadata\n");
+                statusLabel.setText("Metadata cleaned");
+                JOptionPane.showMessageDialog(MainUI.this, "Cleaned invalid metadata", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                showError("Cleaning metadata failed: " + ex.getMessage());
+            }
+        });
+        buttonPanel.add(clearMetadataButton);
+
+        JButton backButton = createStyledButton("Back");
+        backButton.addActionListener(e -> cardLayout.show(cardPanel, "MainMenu"));
+        buttonPanel.add(backButton);
+
+        // Output Area
+        outputArea.setEditable(false);
+        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 10));
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        scrollPane.setBorder(BorderFactory.createTitledBorder("Log"));
+
+        // Status Bar
+        statusLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        // Add components
+        panel.add(inputPanel, BorderLayout.NORTH);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(statusLabel, BorderLayout.SOUTH);
+        panel.add(buttonPanel, BorderLayout.PAGE_END);
+
+        setFontForComponents(panel, new Font("Segoe UI", Font.PLAIN, 14));
+        return panel;
+    }
+
+    // สร้างหน้า Organization
+    private JPanel createOrganizationPanel() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        JTextArea outputArea = new JTextArea(10, 40);
+        JLabel statusLabel = new JLabel("Ready");
+
+        // Button Panel
+        JPanel buttonPanel = new JPanel(new WrapLayout());
         JButton sortByTimestampButton = createStyledButton("Sort by Timestamp");
-        sortByTimestampButton.setBackground(new Color(100, 200, 100));
-        sortByTimestampButton.setForeground(Color.BLACK);
         sortByTimestampButton.addActionListener(e -> {
             try {
                 List<JSONObject> sortedMetadata = metadataAVL.getSortedByTimestamp();
@@ -226,8 +456,6 @@ public class MainUI extends JFrame {
         buttonPanel.add(sortByTimestampButton);
 
         JButton sortBySizeButton = createStyledButton("Sort by Size");
-        sortBySizeButton.setBackground(new Color(100, 200, 200));
-        sortBySizeButton.setForeground(Color.BLACK);
         sortBySizeButton.addActionListener(e -> {
             try {
                 List<JSONObject> sortedMetadata = metadataAVL.getSortedBySize();
@@ -240,27 +468,24 @@ public class MainUI extends JFrame {
         });
         buttonPanel.add(sortBySizeButton);
 
-        // ใหม่: ปุ่มสำหรับการค้นหาแบบช่วง
         JButton searchRangeButton = createStyledButton("Search Range");
-        searchRangeButton.setBackground(new Color(200, 100, 100));
-        searchRangeButton.setForeground(Color.BLACK);
         searchRangeButton.addActionListener(e -> {
             JFrame searchFrame = new JFrame("Search Metadata by Range");
             searchFrame.setSize(400, 300);
             searchFrame.setLocationRelativeTo(MainUI.this);
-            JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5));
+            JPanel searchPanel = new JPanel(new GridLayout(5, 2, 5, 5));
             JTextField minSizeField = new JTextField();
             JTextField maxSizeField = new JTextField();
             JTextField startTimeField = new JTextField();
             JTextField endTimeField = new JTextField();
-            panel.add(new JLabel("Min Size (bytes):"));
-            panel.add(minSizeField);
-            panel.add(new JLabel("Max Size (bytes):"));
-            panel.add(maxSizeField);
-            panel.add(new JLabel("Start Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
-            panel.add(startTimeField);
-            panel.add(new JLabel("End Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
-            panel.add(endTimeField);
+            searchPanel.add(new JLabel("Min Size (bytes):"));
+            searchPanel.add(minSizeField);
+            searchPanel.add(new JLabel("Max Size (bytes):"));
+            searchPanel.add(maxSizeField);
+            searchPanel.add(new JLabel("Start Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
+            searchPanel.add(startTimeField);
+            searchPanel.add(new JLabel("End Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
+            searchPanel.add(endTimeField);
             JButton searchButton = new JButton("Search");
             searchButton.addActionListener(se -> {
                 try {
@@ -279,30 +504,27 @@ public class MainUI extends JFrame {
                     showError("Search failed: " + ex.getMessage());
                 }
             });
-            panel.add(searchButton);
-            searchFrame.add(panel);
+            searchPanel.add(searchButton);
+            searchFrame.add(searchPanel);
             searchFrame.setVisible(true);
         });
         buttonPanel.add(searchRangeButton);
 
-        // ใหม่: ปุ่มสำหรับการค้นหาด้วยเงื่อนไขที่ซับซ้อน
         JButton complexSearchButton = createStyledButton("Complex Search");
-        complexSearchButton.setBackground(new Color(200, 100, 200));
-        complexSearchButton.setForeground(Color.BLACK);
         complexSearchButton.addActionListener(e -> {
             JFrame searchFrame = new JFrame("Complex Metadata Search");
             searchFrame.setSize(400, 300);
             searchFrame.setLocationRelativeTo(MainUI.this);
-            JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5));
+            JPanel searchPanel = new JPanel(new GridLayout(4, 2, 5, 5));
             JTextField extensionField = new JTextField();
             JTextField minSizeField = new JTextField();
             JTextField maxSizeField = new JTextField();
-            panel.add(new JLabel("Extension:"));
-            panel.add(extensionField);
-            panel.add(new JLabel("Min Size (bytes):"));
-            panel.add(minSizeField);
-            panel.add(new JLabel("Max Size (bytes):"));
-            panel.add(maxSizeField);
+            searchPanel.add(new JLabel("Extension:"));
+            searchPanel.add(extensionField);
+            searchPanel.add(new JLabel("Min Size (bytes):"));
+            searchPanel.add(minSizeField);
+            searchPanel.add(new JLabel("Max Size (bytes):"));
+            searchPanel.add(maxSizeField);
             JButton searchButton = new JButton("Search");
             searchButton.addActionListener(se -> {
                 try {
@@ -316,16 +538,13 @@ public class MainUI extends JFrame {
                     showError("Complex search failed: " + ex.getMessage());
                 }
             });
-            panel.add(searchButton);
-            searchFrame.add(panel);
+            searchPanel.add(searchButton);
+            searchFrame.add(searchPanel);
             searchFrame.setVisible(true);
         });
         buttonPanel.add(complexSearchButton);
 
-        // ใหม่: ปุ่มสำหรับสรุปข้อมูล
         JButton summarizeButton = createStyledButton("Summarize");
-        summarizeButton.setBackground(new Color(100, 150, 200));
-        summarizeButton.setForeground(Color.BLACK);
         summarizeButton.addActionListener(e -> {
             try {
                 Map<String, Integer> summary = metadataAVL.summarizeByExtension();
@@ -346,56 +565,354 @@ public class MainUI extends JFrame {
         });
         buttonPanel.add(summarizeButton);
 
-        // ใหม่: ปุ่มสำหรับทำความสะอาด metadata
-        JButton cleanMetadataButton = createStyledButton("Clean Metadata");
-        cleanMetadataButton.setBackground(new Color(200, 50, 50));
-        cleanMetadataButton.setForeground(Color.BLACK);
-        cleanMetadataButton.addActionListener(e -> {
-            try {
-                metadataAVL.cleanInvalidMetadata();
-                outputArea.append("Cleaned invalid metadata\n");
-                statusLabel.setText("Metadata cleaned");
-                JOptionPane.showMessageDialog(MainUI.this, "Cleaned invalid metadata", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception ex) {
-                showError("Cleaning metadata failed: " + ex.getMessage());
-            }
-        });
-        buttonPanel.add(cleanMetadataButton);
-
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.gridwidth = 3;
-        mainPanel.add(buttonPanel, gbc);
+        JButton backButton = createStyledButton("Back");
+        backButton.addActionListener(e -> cardLayout.show(cardPanel, "MainMenu"));
+        buttonPanel.add(backButton);
 
         // Output Area
-        outputArea = new JTextArea(10, 40);
         outputArea.setEditable(false);
         outputArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane scrollPane = new JScrollPane(outputArea);
         scrollPane.setBorder(BorderFactory.createTitledBorder("Log"));
 
         // Status Bar
-        statusLabel = new JLabel("Ready");
         statusLabel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        // Add components to frame
-        add(mainPanel, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
-        add(statusLabel, BorderLayout.SOUTH);
+        // Add components
+        panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(statusLabel, BorderLayout.SOUTH);
+        panel.add(buttonPanel, BorderLayout.PAGE_END);
 
-        // Set modern font
-        setFontForComponents(mainPanel, new Font("Segoe UI", Font.PLAIN, 14));
-        setFontForComponents(buttonPanel, new Font("Segoe UI", Font.BOLD, 14));
-
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                metadataAVL.saveToFile();
-                System.exit(0);
-            }
-        });
+        setFontForComponents(panel, new Font("Segoe UI", Font.PLAIN, 14));
+        return panel;
     }
 
+    // คลาส Action สำหรับ Encrypt
+    private class EncryptAction implements ActionListener {
+        private JTextField inputFileField, outputPathField, newNameField;
+        private JPasswordField passwordField, confirmPasswordField;
+        private JCheckBox deleteOriginalCheckBox;
+        private JTextArea outputArea;
+        private JLabel statusLabel;
+    
+        public EncryptAction(JTextField inputFileField, JTextField outputPathField, JTextField newNameField,
+                             JPasswordField passwordField, JPasswordField confirmPasswordField,
+                             JCheckBox deleteOriginalCheckBox, JTextArea outputArea, JLabel statusLabel) {
+            this.inputFileField = inputFileField;
+            this.outputPathField = outputPathField;
+            this.newNameField = newNameField;
+            this.passwordField = passwordField;
+            this.confirmPasswordField = confirmPasswordField;
+            this.deleteOriginalCheckBox = deleteOriginalCheckBox;
+            this.outputArea = outputArea;
+            this.statusLabel = statusLabel;
+        }
+    
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String inputFileText = inputFileField.getText().trim();
+            String outputFilePath = outputPathField.getText().trim();
+            String outputFileName = newNameField.getText().trim();
+            char[] passwordChars = passwordField.getPassword();
+            char[] confirmPasswordChars = confirmPasswordField.getPassword();
+            String password = new String(passwordChars);
+            String confirmPassword = new String(confirmPasswordChars);
+    
+            try {
+                if (inputFileText.isEmpty() || outputFilePath.isEmpty()) {
+                    showError("Input file(s) and output path are required");
+                    return;
+                }
+                if (password.length() < 8) {
+                    showError("Password must be at least 8 characters long");
+                    return;
+                }
+                if (!password.equals(confirmPassword)) {
+                    showError("Passwords do not match");
+                    return;
+                }
+    
+                File[] inputFiles;
+                boolean isSingleFile = !inputFileText.contains("files selected");
+    
+                if (isSingleFile) {
+                    inputFiles = new File[]{new File(inputFileText)};
+                    if (!outputFileName.isEmpty() && !outputFileName.matches("[^<>:\"/\\\\|?*]+")) {
+                        showError("Output file name contains invalid characters");
+                        return;
+                    }
+                } else {
+                    if (enSelectedFiles == null || enSelectedFiles.length == 0) {
+                        showError("No files selected");
+                        return;
+                    }
+                    inputFiles = enSelectedFiles;
+                }
+    
+                AES aes = new AES();
+                byte[] salt = aes.generateSalt();
+                boolean allSuccessful = true;
+    
+                for (File inputFile : inputFiles) {
+                    String fullOutputPath;
+                    if (isSingleFile) {
+                        fullOutputPath = outputFileName.isEmpty() ?
+                                Paths.get(outputFilePath, inputFile.getName()).toString() :
+                                Paths.get(outputFilePath, outputFileName).toString();
+                    } else {
+                        String fileNameWithoutExt = inputFile.getName().substring(0, inputFile.getName().lastIndexOf('.'));
+                        fullOutputPath = Paths.get(outputFilePath, fileNameWithoutExt).toString();
+                    }
+    
+                    File outputEncryptedFile = new File(fullOutputPath + ".enc");
+                    if (outputEncryptedFile.exists()) {
+                        int overwriteResult = JOptionPane.showConfirmDialog(MainUI.this,
+                                "Output file " + outputEncryptedFile.getName() + " already exists. Overwrite?",
+                                "Confirm Overwrite", JOptionPane.YES_NO_OPTION);
+                        if (overwriteResult != JOptionPane.YES_OPTION) {
+                            outputArea.append("Skipped encryption for " + inputFile.getName() + "\n");
+                            allSuccessful = false;
+                            continue;
+                        }
+                    }
+    
+                    JSONObject metadata = new JSONObject();
+                    metadata.put("extension", inputFile.getName().substring(inputFile.getName().lastIndexOf('.') + 1));
+                    metadata.put("originalName", inputFile.getName());
+                    metadata.put("size", inputFile.length());
+                    metadata.put("timestamp", LocalDateTime.now().toString());
+    
+                    try {
+                        aes.encryptFile(inputFile, new File(fullOutputPath), password, salt, metadata);
+                        String hash = metadataAVL.computeMetadataHash(metadata);
+                        metadataAVL.insert(hash, fullOutputPath + ".enc", metadata);
+                        outputArea.append("Encrypted " + inputFile.getName() + " to " + fullOutputPath + ".enc\n");
+    
+                        if (deleteOriginalCheckBox.isSelected()) {
+                            SecureDelete.secureDelete(inputFile.getAbsolutePath());
+                            outputArea.append("Original file " + inputFile.getName() + " securely deleted\n");
+                        }
+                    } catch (Exception ex) {
+                        outputArea.append("Failed to encrypt " + inputFile.getName() + ": " + ex.getMessage() + "\n");
+                        allSuccessful = false;
+                    }
+                }
+    
+                statusLabel.setText(allSuccessful ? "Encryption completed" : "Encryption completed with errors");
+                JOptionPane.showMessageDialog(MainUI.this, allSuccessful ? "All files encrypted successfully" :
+                        "Some files failed to encrypt. Check log for details", "Result", JOptionPane.INFORMATION_MESSAGE);
+    
+            } catch (Exception ex) {
+                outputArea.append("Encryption failed: " + ex.getMessage() + "\n");
+                statusLabel.setText("Encryption failed");
+                showError("Encryption failed: " + ex.getMessage());
+            } finally {
+                Arrays.fill(passwordChars, '\0');
+                Arrays.fill(confirmPasswordChars, '\0');
+            }
+        }
+    }
+
+    // คลาส Action สำหรับ Decrypt
+    private class DecryptAction implements ActionListener {
+        private JTextField inputFileField, outputPathField;
+        private JPasswordField passwordField;
+        private JCheckBox deleteOriginalCheckBox;
+        private JTextArea outputArea;
+        private JLabel statusLabel;
+
+        public DecryptAction(JTextField inputFileField, JTextField outputPathField, JPasswordField passwordField,
+                            JCheckBox deleteOriginalCheckBox, JTextArea outputArea, JLabel statusLabel) {
+            this.inputFileField = inputFileField;
+            this.outputPathField = outputPathField;
+            this.passwordField = passwordField;
+            this.deleteOriginalCheckBox = deleteOriginalCheckBox;
+            this.outputArea = outputArea;
+            this.statusLabel = statusLabel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String inputFileText = inputFileField.getText().trim();
+            String outputFilePath = outputPathField.getText().trim();
+            char[] passwordChars = passwordField.getPassword();
+            String password = new String(passwordChars);
+
+            try {
+                if (inputFileText.isEmpty() || outputFilePath.isEmpty()) {
+                    showError("Input file(s) and output path are required");
+                    return;
+                }
+                if (password.length() < 8) {
+                    showError("Password must be at least 8 characters long");
+                    return;
+                }
+
+                File[] inputFiles;
+                boolean isSingleFile = !inputFileText.contains("files selected");
+
+                if (isSingleFile) {
+                    inputFiles = new File[]{new File(inputFileText)};
+                    if (!inputFiles[0].getName().toLowerCase().endsWith(".enc")) {
+                        showError("Input file must have .enc extension");
+                        return;
+                    }
+                } else {
+                    if (deSelectedFiles == null || deSelectedFiles.length == 0) {
+                        showError("No files selected");
+                        return;
+                    }
+                    inputFiles = deSelectedFiles;
+                }
+
+                AES aes = new AES();
+                boolean allSuccessful = true;
+
+                for (File inputFile : inputFiles) {
+                    JSONObject metadata = metadataAVL.getMetadata(inputFile.getAbsolutePath());
+                    if (metadata == null) {
+                        metadata = aes.readMetadata(inputFile);
+                        String hash = metadataAVL.computeMetadataHash(metadata);
+                        metadataAVL.insert(hash, inputFile.getAbsolutePath(), metadata);
+                    }
+                    String originalName = metadata.getString("originalName");
+
+                    String fullOutputPath = Paths.get(outputFilePath, originalName).toString();
+                    File outputFile = new File(fullOutputPath);
+                    if (outputFile.exists()) {
+                        int result = JOptionPane.showConfirmDialog(MainUI.this,
+                                "Output file " + outputFile.getName() + " already exists. Overwrite?",
+                                "Confirm Overwrite", JOptionPane.YES_NO_OPTION);
+                        if (result != JOptionPane.YES_OPTION) {
+                            outputArea.append("Skipped decryption for " + inputFile.getName() + "\n");
+                            allSuccessful = false;
+                            continue;
+                        }
+                    }
+
+                    try {
+                        aes.decryptFile(inputFile, outputFile, password);
+                        outputArea.append("Decrypted " + inputFile.getName() + " to " + fullOutputPath + "\n");
+
+                        if (deleteOriginalCheckBox.isSelected()) {
+                            SecureDelete.secureDelete(inputFile.getAbsolutePath());
+                            outputArea.append("Original encrypted file " + inputFile.getName() + " securely deleted\n");
+                        }
+                    } catch (Exception ex) {
+                        outputArea.append("Failed to decrypt " + inputFile.getName() + ": " + ex.getMessage() + "\n");
+                        allSuccessful = false;
+                    }
+                }
+
+                statusLabel.setText(allSuccessful ? "Decryption completed" : "Decryption completed with errors");
+                JOptionPane.showMessageDialog(MainUI.this, allSuccessful ? "All files decrypted successfully" :
+                        "Some files failed to decrypt. Check log for details", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (Exception ex) {
+                outputArea.append("Decryption failed: " + ex.getMessage() + "\n");
+                statusLabel.setText("Decryption failed");
+                showError("Decryption failed: " + ex.getMessage());
+            } finally {
+                Arrays.fill(passwordChars, '\0');
+            }
+        }
+    }
+
+    // คลาส Action สำหรับ Read
+    private class ReadAction implements ActionListener {
+        private JTextField inputFileField;
+        private JPasswordField passwordField;
+        private JCheckBox deleteOriginalCheckBox;
+        private JTextArea outputArea;
+        private JLabel statusLabel;
+
+        public ReadAction(JTextField inputFileField, JPasswordField passwordField,
+                        JCheckBox deleteOriginalCheckBox, JTextArea outputArea, JLabel statusLabel) {
+            this.inputFileField = inputFileField;
+            this.passwordField = passwordField;
+            this.deleteOriginalCheckBox = deleteOriginalCheckBox;
+            this.outputArea = outputArea;
+            this.statusLabel = statusLabel;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String inputFileText = inputFileField.getText().trim();
+            char[] passwordChars = passwordField.getPassword();
+            String password = new String(passwordChars);
+
+            try {
+                if (inputFileText.isEmpty()) {
+                    showError("Input file(s) is required");
+                    return;
+                }
+                if (password.length() < 8) {
+                    showError("Password must be at least 8 characters long");
+                    return;
+                }
+
+                File[] inputFiles;
+                boolean isSingleFile = !inputFileText.contains("files selected");
+
+                if (isSingleFile) {
+                    inputFiles = new File[]{new File(inputFileText)};
+                    if (!inputFiles[0].getName().toLowerCase().endsWith(".enc")) {
+                        showError("Input file must have .enc extension");
+                        return;
+                    }
+                } else {
+                    if (deSelectedFiles == null || deSelectedFiles.length == 0) {
+                        showError("No files selected");
+                        return;
+                    }
+                    inputFiles = deSelectedFiles;
+                }
+
+                AES aes = new AES();
+                boolean allSuccessful = true;
+
+                for (File inputFile : inputFiles) {
+                    JSONObject metadata = metadataAVL.getMetadata(inputFile.getAbsolutePath());
+                    if (metadata == null) {
+                        metadata = aes.readMetadata(inputFile);
+                        String hash = metadataAVL.computeMetadataHash(metadata);
+                        metadataAVL.insert(hash, inputFile.getAbsolutePath(), metadata);
+                    }
+                    String extension = metadata.getString("extension");
+
+                    try {
+                        byte[] decryptedBytes = aes.decryptReadBytes(inputFile, password);
+                        File tempFile = File.createTempFile("decrypted_", "." + extension);
+                        tempFile.deleteOnExit();
+                        Files.write(tempFile.toPath(), decryptedBytes);
+                        Desktop.getDesktop().open(tempFile);
+                        outputArea.append("Opened " + inputFile.getName() + "\n");
+
+                        if (deleteOriginalCheckBox.isSelected()) {
+                            SecureDelete.secureDelete(inputFile.getAbsolutePath());
+                            outputArea.append("Original encrypted file " + inputFile.getName() + " securely deleted\n");
+                        }
+                    } catch (Exception ex) {
+                        outputArea.append("Failed to read " + inputFile.getName() + ": " + ex.getMessage() + "\n");
+                        allSuccessful = false;
+                    }
+                }
+
+                statusLabel.setText(allSuccessful ? "Read completed" : "Read completed with errors");
+                JOptionPane.showMessageDialog(MainUI.this, allSuccessful ? "All files read successfully" :
+                        "Some files failed to read. Check log for details", "Result", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (Exception ex) {
+                outputArea.append("Read failed: " + ex.getMessage() + "\n");
+                statusLabel.setText("Read failed");
+                showError("Read failed: " + ex.getMessage());
+            } finally {
+                Arrays.fill(passwordChars, '\0');
+            }
+        }
+    }
+
+    // เมธอดช่วยเหลือ
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setFocusPainted(false);
@@ -431,13 +948,25 @@ public class MainUI extends JFrame {
         frame.setVisible(true);
     }
 
+    private void showError(String message) {
+        JOptionPane.showMessageDialog(MainUI.this, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
     private class BrowseFileAction implements ActionListener {
         private JTextField targetField;
+        private JTextField newNameField; // อาจเป็น null สำหรับหน้า Decrypt
         private boolean isInput;
+        private boolean isDecrypt; // บ่งชี้ว่าเป็นหน้า Decrypt หรือไม่
 
-        public BrowseFileAction(JTextField targetField, boolean isInput) {
+        public BrowseFileAction(JTextField targetField, JTextField newNameField, boolean isInput, boolean isDecrypt) {
             this.targetField = targetField;
+            this.newNameField = newNameField;
             this.isInput = isInput;
+            this.isDecrypt = isDecrypt;
+        }
+
+        public BrowseFileAction(JTextField targetField, boolean isInput, boolean isDecrypt) {
+            this(targetField, null, isInput, isDecrypt);
         }
 
         @Override
@@ -445,226 +974,57 @@ public class MainUI extends JFrame {
             JFileChooser fileChooser = new JFileChooser();
             if (isInput) {
                 fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                fileChooser.setMultiSelectionEnabled(true);
+                // จำกัดไฟล์ .enc สำหรับหน้า Decrypt
+                if (isDecrypt) {
+                    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+                        @Override
+                        public boolean accept(File f) {
+                            return f.isDirectory() || f.getName().toLowerCase().endsWith(".enc");
+                        }
+                        @Override
+                        public String getDescription() {
+                            return "Encrypted Files (*.enc)";
+                        }
+                    });
+                }
             } else {
                 fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                fileChooser.setMultiSelectionEnabled(false);
             }
             int result = fileChooser.showOpenDialog(MainUI.this);
             if (result == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                targetField.setText(selectedFile.getAbsolutePath());
-                statusLabel.setText("Selected: " + selectedFile.getName());
-            } else {
-                statusLabel.setText("Selection cancelled");
-            }
-        }
-    }
-
-    private class EncryptAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String inputFilePath = inputFilePathField.getText().trim();
-            String outputFilePath = outputFilePathField.getText().trim();
-            String outputFileName = outputFileNameField.getText().trim();
-            char[] passwordChars = passwordField.getPassword();
-            String password = new String(passwordChars);
-
-            try {
-                if (inputFilePath.isEmpty() || outputFilePath.isEmpty()) {
-                    showError("Input path and output path are required");
-                    return;
-                }
-                if (password.length() < 8) {
-                    showError("Password must be at least 8 characters long");
-                    return;
-                }
-                if (!outputFileName.isEmpty() && !outputFileName.matches("[^<>:\"/\\\\|?*]+")) {
-                    showError("Output file name contains invalid characters");
-                    return;
-                }
-
-                String fullOutputPath = outputFileName.isEmpty() ?
-                        Paths.get(outputFilePath, new File(inputFilePath).getName()).toString() :
-                        Paths.get(outputFilePath, outputFileName).toString();
-                File outputEncryptedFile = new File(fullOutputPath + ".enc");
-                if (outputEncryptedFile.exists()) {
-                    int result = JOptionPane.showConfirmDialog(MainUI.this,
-                            "Output file already exists. Overwrite?", "Confirm Overwrite",
-                            JOptionPane.YES_NO_OPTION);
-                    if (result != JOptionPane.YES_OPTION) {
-                        return;
+                if (isInput) {
+                    File[] selected = fileChooser.getSelectedFiles();
+                    // ตรวจสอบนามสกุล .enc สำหรับหน้า Decrypt
+                    if (isDecrypt) {
+                        for (File file : selected) {
+                            if (!file.getName().toLowerCase().endsWith(".enc")) {
+                                showError("All selected files must have .enc extension");
+                                return;
+                            }
+                        }
+                        deSelectedFiles = selected; // บันทึกสำหรับหน้า Decrypt
+                    } else {
+                        enSelectedFiles = selected; // บันทึกสำหรับหน้า Encrypt
                     }
-                }
-
-                AES aes = new AES();
-                byte[] salt = aes.generateSalt();
-                File inputFile = new File(inputFilePath);
-                JSONObject metadata = new JSONObject();
-                metadata.put("extension", inputFile.getName().substring(inputFile.getName().lastIndexOf('.') + 1));
-                metadata.put("originalName", inputFile.getName());
-                metadata.put("size", inputFile.length());
-                metadata.put("timestamp", LocalDateTime.now().toString());
-
-                aes.encryptFile(inputFile, new File(fullOutputPath), password, salt, metadata);
-                String hash = metadataAVL.computeMetadataHash(metadata);
-                metadataAVL.insert(hash, fullOutputPath + ".enc", metadata);
-                String message = "File encrypted successfully to " + fullOutputPath + ".enc";
-                outputArea.append(message + "\n");
-                statusLabel.setText("Encryption successful");
-
-                if (deleteOriginalCheckBox.isSelected()) {
-                    SecureDelete.secureDelete(inputFilePath);
-                    outputArea.append("Original file securely deleted\n");
-                    statusLabel.setText("Encryption and deletion successful");
-                }
-
-                JOptionPane.showMessageDialog(MainUI.this, message, "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception ex) {
-                outputArea.append("Encryption failed: " + ex.getMessage() + "\n");
-                statusLabel.setText("Encryption failed");
-                showError("Encryption failed: " + ex.getMessage());
-            } finally {
-                Arrays.fill(passwordChars, '\0');
-            }
-        }
-    }
-
-    private class DecryptAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String inputFilePath = inputFilePathField.getText().trim();
-            String outputFilePath = outputFilePathField.getText().trim();
-            String outputFileName = outputFileNameField.getText().trim();
-            char[] passwordChars = passwordField.getPassword();
-            String password = new String(passwordChars);
-
-            try {
-                if (inputFilePath.isEmpty() || outputFilePath.isEmpty()) {
-                    showError("Input path and output path are required");
-                    return;
-                }
-                if (password.length() < 8) {
-                    showError("Password must be at least 8 characters long");
-                    return;
-                }
-                if (!inputFilePath.endsWith(".enc")) {
-                    showError("Input file must have .enc extension");
-                    return;
-                }
-                if (!outputFileName.isEmpty() && !outputFileName.matches("[^<>:\"/\\\\|?*]+")) {
-                    showError("Output file name contains invalid characters");
-                    return;
-                }
-
-                JSONObject metadata = metadataAVL.getMetadata(inputFilePath);
-                if (metadata == null) {
-                    AES aes = new AES();
-                    metadata = aes.readMetadata(new File(inputFilePath));
-                    String hash = metadataAVL.computeMetadataHash(metadata);
-                    metadataAVL.insert(hash, inputFilePath, metadata);
-                }
-                String extension = metadata.getString("extension");
-                String originalName = metadata.getString("originalName");
-
-                String fullOutputPath;
-                if (outputFileName.isEmpty()) {
-                    fullOutputPath = Paths.get(outputFilePath, originalName).toString();
+                    if (selected.length > 1) {
+                        targetField.setText(selected.length + " files selected");
+                        if (newNameField != null) {
+                            newNameField.setEnabled(false); // ปิด newNameField สำหรับหลายไฟล์ในหน้า Encrypt
+                        }
+                    } else {
+                        targetField.setText(selected[0].getAbsolutePath());
+                        if (newNameField != null) {
+                            newNameField.setEnabled(true); // เปิด newNameField สำหรับไฟล์เดียวในหน้า Encrypt
+                        }
+                    }
                 } else {
-                    fullOutputPath = Paths.get(outputFilePath, outputFileName + "." + extension).toString();
+                    File selectedFile = fileChooser.getSelectedFile();
+                    targetField.setText(selectedFile.getAbsolutePath());
                 }
-
-                File outputFile = new File(fullOutputPath);
-                if (outputFile.exists()) {
-                    int result = JOptionPane.showConfirmDialog(MainUI.this,
-                            "Output file already exists. Overwrite?", "Confirm Overwrite",
-                            JOptionPane.YES_NO_OPTION);
-                    if (result != JOptionPane.YES_OPTION) {
-                        return;
-                    }
-                }
-
-                AES aes = new AES();
-                File encryptedFile = new File(inputFilePath);
-                aes.decryptFile(encryptedFile, outputFile, password);
-                String message = "File decrypted successfully to " + fullOutputPath;
-                outputArea.append(message + "\n");
-                statusLabel.setText("Decryption successful");
-
-                if (deleteOriginalCheckBox.isSelected()) {
-                    SecureDelete.secureDelete(inputFilePath);
-                    outputArea.append("Original encrypted file securely deleted\n");
-                    statusLabel.setText("Decryption and deletion successful");
-                }
-
-                JOptionPane.showMessageDialog(MainUI.this, message, "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception ex) {
-                outputArea.append("Decryption failed: " + ex.getMessage() + "\n");
-                statusLabel.setText("Decryption failed");
-                showError("Decryption failed: " + ex.getMessage());
-            } finally {
-                Arrays.fill(passwordChars, '\0');
             }
         }
-    }
-
-    private class ReadAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String inputFilePath = inputFilePathField.getText().trim();
-            char[] passwordChars = passwordField.getPassword();
-            String password = new String(passwordChars);
-
-            try {
-                if (inputFilePath.isEmpty()) {
-                    showError("Input path is required");
-                    return;
-                }
-                if (password.length() < 8) {
-                    showError("Password must be at least 8 characters long");
-                    return;
-                }
-                if (!inputFilePath.endsWith(".enc")) {
-                    showError("Input file must have .enc extension");
-                    return;
-                }
-
-                JSONObject metadata = metadataAVL.getMetadata(inputFilePath);
-                if (metadata == null) {
-                    AES aes = new AES();
-                    metadata = aes.readMetadata(new File(inputFilePath));
-                    String hash = metadataAVL.computeMetadataHash(metadata);
-                    metadataAVL.insert(hash, inputFilePath, metadata);
-                }
-                String extension = metadata.getString("extension");
-
-                AES aes = new AES();
-                File encryptedFile = new File(inputFilePath);
-                byte[] decryptedBytes = aes.decryptReadBytes(encryptedFile, password);
-
-                File tempFile = File.createTempFile("decrypted_", "." + extension);
-                tempFile.deleteOnExit();
-                Files.write(tempFile.toPath(), decryptedBytes);
-                Desktop.getDesktop().open(tempFile);
-
-                outputArea.append("File decrypted and opened successfully\n");
-                statusLabel.setText("Read successful");
-
-                if (deleteOriginalCheckBox.isSelected()) {
-                    SecureDelete.secureDelete(inputFilePath);
-                    outputArea.append("Original encrypted file securely deleted\n");
-                    statusLabel.setText("Read and deletion successful");
-                }
-            } catch (Exception ex) {
-                outputArea.append("Read failed: " + ex.getMessage() + "\n");
-                statusLabel.setText("Read failed");
-                showError("Read failed: " + ex.getMessage());
-            } finally {
-                Arrays.fill(passwordChars, '\0');
-            }
-        }
-    }
-
-    private void showError(String message) {
-        JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
     public static void main(String[] args) {

@@ -130,7 +130,6 @@ public class MetadataAVLTree {
         return computeMetadataHash(metadata);
     }
 
-    // ดึง metadata ที่เรียงลำดับตาม timestamp
     public List<JSONObject> getSortedByTimestamp() {
         List<JSONObject> result = new ArrayList<>();
         inOrderTraversal(root, result);
@@ -138,7 +137,6 @@ public class MetadataAVLTree {
         return result;
     }
 
-    // ดึง metadata ที่เรียงลำดับตามขนาด
     public List<JSONObject> getSortedBySize() {
         List<JSONObject> result = new ArrayList<>();
         inOrderTraversal(root, result);
@@ -153,7 +151,6 @@ public class MetadataAVLTree {
         inOrderTraversal(node.right, result);
     }
 
-    // ค้นหาแบบช่วงตามขนาด
     public List<JSONObject> findBySizeRange(long minSize, long maxSize) {
         List<JSONObject> result = new ArrayList<>();
         findBySizeRangeRec(root, minSize, maxSize, result);
@@ -168,7 +165,6 @@ public class MetadataAVLTree {
         if (size < maxSize) findBySizeRangeRec(node.right, minSize, maxSize, result);
     }
 
-    // ค้นหาแบบช่วงตาม timestamp
     public List<JSONObject> findByTimestampRange(String startTime, String endTime) {
         List<JSONObject> result = new ArrayList<>();
         findByTimestampRangeRec(root, startTime, endTime, result);
@@ -183,7 +179,6 @@ public class MetadataAVLTree {
         if (timestamp.compareTo(endTime) < 0) findByTimestampRangeRec(node.right, startTime, endTime, result);
     }
 
-    // ค้นหาด้วยเงื่อนไขที่ซับซ้อน (เช่น นามสกุลและขนาด)
     public List<JSONObject> findByComplexCondition(String extension, Long minSize, Long maxSize) {
         List<JSONObject> result = new ArrayList<>();
         findByComplexConditionRec(root, extension, minSize, maxSize, result);
@@ -208,7 +203,6 @@ public class MetadataAVLTree {
         findByComplexConditionRec(node.right, extension, minSize, maxSize, result);
     }
 
-    // สรุปข้อมูลตามนามสกุล
     public Map<String, Integer> summarizeByExtension() {
         Map<String, Integer> summary = new HashMap<>();
         summarizeByExtensionRec(root, summary);
@@ -223,7 +217,6 @@ public class MetadataAVLTree {
         summarizeByExtensionRec(node.right, summary);
     }
 
-    // ทำความสะอาด metadata ของไฟล์ที่ถูกลบหรือย้าย
     public void cleanInvalidMetadata() {
         List<String> hashesToRemove = new ArrayList<>();
         collectInvalidMetadataRec(root, hashesToRemove);
@@ -242,7 +235,6 @@ public class MetadataAVLTree {
         collectInvalidMetadataRec(node.right, hashesToRemove);
     }
 
-    // เมธอดรีเคอร์ซีฟสำหรับลบโหนด
     private Node delete(Node node, String hash) {
         if (node == null) return null;
         int cmp = hash.compareTo(node.hash);
