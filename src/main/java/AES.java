@@ -1,21 +1,26 @@
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.Base64;
+
 import org.json.JSONObject;
 
 public class AES extends PBEKey {
-    private static final int ITERATIONS = 65536;
-    private static final int KEY_LENGTH = 128; // bits
-    private static final int SALT_LENGTH = 16; // bytes
+    // private static final int ITERATIONS = 65536;
+    // private static final int KEY_LENGTH = 128; // bits
+    // private static final int SALT_LENGTH = 16; // bytes
     private static final int GCM_NONCE_LENGTH = 12;
     private static final int GCM_TAG_LENGTH = 128;
 

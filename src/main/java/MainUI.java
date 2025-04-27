@@ -1,13 +1,45 @@
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+
 import org.json.JSONObject;
 
 public class MainUI extends JFrame {
@@ -23,7 +55,7 @@ public class MainUI extends JFrame {
 
     public MainUI() {
         setTitle("File Encryption/Decryption with Metadata");
-        setSize(600, 500);
+        setSize(600, 600); // เพิ่มขนาดเพื่อรองรับปุ่มใหม่
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
@@ -124,6 +156,8 @@ public class MainUI extends JFrame {
         encryptButton.addActionListener(new EncryptAction());
         buttonPanel.add(encryptButton);
 
+        
+
         JButton decryptButton = createStyledButton("Decrypt");
         decryptButton.setBackground(new Color(50, 50, 150));
         decryptButton.setForeground(Color.BLACK);
@@ -174,6 +208,159 @@ public class MainUI extends JFrame {
             }
         });
         buttonPanel.add(showMetadataButton);
+
+        // ใหม่: ปุ่มสำหรับการเรียงลำดับ
+        JButton sortByTimestampButton = createStyledButton("Sort by Timestamp");
+        sortByTimestampButton.setBackground(new Color(100, 200, 100));
+        sortByTimestampButton.setForeground(Color.BLACK);
+        sortByTimestampButton.addActionListener(e -> {
+            try {
+                List<JSONObject> sortedMetadata = metadataAVL.getSortedByTimestamp();
+                displayMetadataList(sortedMetadata, "Metadata Sorted by Timestamp");
+                outputArea.append("Displayed metadata sorted by timestamp\n");
+                statusLabel.setText("Sorted by timestamp");
+            } catch (Exception ex) {
+                showError("Failed to sort metadata: " + ex.getMessage());
+            }
+        });
+        buttonPanel.add(sortByTimestampButton);
+
+        JButton sortBySizeButton = createStyledButton("Sort by Size");
+        sortBySizeButton.setBackground(new Color(100, 200, 200));
+        sortBySizeButton.setForeground(Color.BLACK);
+        sortBySizeButton.addActionListener(e -> {
+            try {
+                List<JSONObject> sortedMetadata = metadataAVL.getSortedBySize();
+                displayMetadataList(sortedMetadata, "Metadata Sorted by Size");
+                outputArea.append("Displayed metadata sorted by size\n");
+                statusLabel.setText("Sorted by size");
+            } catch (Exception ex) {
+                showError("Failed to sort metadata: " + ex.getMessage());
+            }
+        });
+        buttonPanel.add(sortBySizeButton);
+
+        // ใหม่: ปุ่มสำหรับการค้นหาแบบช่วง
+        JButton searchRangeButton = createStyledButton("Search Range");
+        searchRangeButton.setBackground(new Color(200, 100, 100));
+        searchRangeButton.setForeground(Color.BLACK);
+        searchRangeButton.addActionListener(e -> {
+            JFrame searchFrame = new JFrame("Search Metadata by Range");
+            searchFrame.setSize(400, 300);
+            searchFrame.setLocationRelativeTo(MainUI.this);
+            JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5));
+            JTextField minSizeField = new JTextField();
+            JTextField maxSizeField = new JTextField();
+            JTextField startTimeField = new JTextField();
+            JTextField endTimeField = new JTextField();
+            panel.add(new JLabel("Min Size (bytes):"));
+            panel.add(minSizeField);
+            panel.add(new JLabel("Max Size (bytes):"));
+            panel.add(maxSizeField);
+            panel.add(new JLabel("Start Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
+            panel.add(startTimeField);
+            panel.add(new JLabel("End Timestamp (yyyy-MM-dd'T'HH:mm:ss):"));
+            panel.add(endTimeField);
+            JButton searchButton = new JButton("Search");
+            searchButton.addActionListener(se -> {
+                try {
+                    List<JSONObject> results = new ArrayList<>();
+                    if (!minSizeField.getText().isEmpty() && !maxSizeField.getText().isEmpty()) {
+                        long minSize = Long.parseLong(minSizeField.getText());
+                        long maxSize = Long.parseLong(maxSizeField.getText());
+                        results.addAll(metadataAVL.findBySizeRange(minSize, maxSize));
+                    }
+                    if (!startTimeField.getText().isEmpty() && !endTimeField.getText().isEmpty()) {
+                        results.addAll(metadataAVL.findByTimestampRange(startTimeField.getText(), endTimeField.getText()));
+                    }
+                    displayMetadataList(results, "Search Results");
+                    outputArea.append("Search completed\n");
+                } catch (Exception ex) {
+                    showError("Search failed: " + ex.getMessage());
+                }
+            });
+            panel.add(searchButton);
+            searchFrame.add(panel);
+            searchFrame.setVisible(true);
+        });
+        buttonPanel.add(searchRangeButton);
+
+        // ใหม่: ปุ่มสำหรับการค้นหาด้วยเงื่อนไขที่ซับซ้อน
+        JButton complexSearchButton = createStyledButton("Complex Search");
+        complexSearchButton.setBackground(new Color(200, 100, 200));
+        complexSearchButton.setForeground(Color.BLACK);
+        complexSearchButton.addActionListener(e -> {
+            JFrame searchFrame = new JFrame("Complex Metadata Search");
+            searchFrame.setSize(400, 300);
+            searchFrame.setLocationRelativeTo(MainUI.this);
+            JPanel panel = new JPanel(new GridLayout(4, 2, 5, 5));
+            JTextField extensionField = new JTextField();
+            JTextField minSizeField = new JTextField();
+            JTextField maxSizeField = new JTextField();
+            panel.add(new JLabel("Extension:"));
+            panel.add(extensionField);
+            panel.add(new JLabel("Min Size (bytes):"));
+            panel.add(minSizeField);
+            panel.add(new JLabel("Max Size (bytes):"));
+            panel.add(maxSizeField);
+            JButton searchButton = new JButton("Search");
+            searchButton.addActionListener(se -> {
+                try {
+                    String extension = extensionField.getText().isEmpty() ? null : extensionField.getText();
+                    Long minSize = minSizeField.getText().isEmpty() ? null : Long.parseLong(minSizeField.getText());
+                    Long maxSize = maxSizeField.getText().isEmpty() ? null : Long.parseLong(maxSizeField.getText());
+                    List<JSONObject> results = metadataAVL.findByComplexCondition(extension, minSize, maxSize);
+                    displayMetadataList(results, "Complex Search Results");
+                    outputArea.append("Complex search completed\n");
+                } catch (Exception ex) {
+                    showError("Complex search failed: " + ex.getMessage());
+                }
+            });
+            panel.add(searchButton);
+            searchFrame.add(panel);
+            searchFrame.setVisible(true);
+        });
+        buttonPanel.add(complexSearchButton);
+
+        // ใหม่: ปุ่มสำหรับสรุปข้อมูล
+        JButton summarizeButton = createStyledButton("Summarize");
+        summarizeButton.setBackground(new Color(100, 150, 200));
+        summarizeButton.setForeground(Color.BLACK);
+        summarizeButton.addActionListener(e -> {
+            try {
+                Map<String, Integer> summary = metadataAVL.summarizeByExtension();
+                JFrame summaryFrame = new JFrame("Metadata Summary");
+                summaryFrame.setSize(400, 300);
+                JTextArea summaryArea = new JTextArea();
+                summaryArea.setEditable(false);
+                for (Map.Entry<String, Integer> entry : summary.entrySet()) {
+                    summaryArea.append("Extension: " + entry.getKey() + ", Count: " + entry.getValue() + "\n");
+                }
+                summaryFrame.add(new JScrollPane(summaryArea));
+                summaryFrame.setVisible(true);
+                outputArea.append("Summary displayed\n");
+                statusLabel.setText("Summary displayed");
+            } catch (Exception ex) {
+                showError("Summary failed: " + ex.getMessage());
+            }
+        });
+        buttonPanel.add(summarizeButton);
+
+        // ใหม่: ปุ่มสำหรับทำความสะอาด metadata
+        JButton cleanMetadataButton = createStyledButton("Clean Metadata");
+        cleanMetadataButton.setBackground(new Color(200, 50, 50));
+        cleanMetadataButton.setForeground(Color.BLACK);
+        cleanMetadataButton.addActionListener(e -> {
+            try {
+                metadataAVL.cleanInvalidMetadata();
+                outputArea.append("Cleaned invalid metadata\n");
+                statusLabel.setText("Metadata cleaned");
+                JOptionPane.showMessageDialog(MainUI.this, "Cleaned invalid metadata", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                showError("Cleaning metadata failed: " + ex.getMessage());
+            }
+        });
+        buttonPanel.add(cleanMetadataButton);
 
         gbc.gridx = 0;
         gbc.gridy = 5;
@@ -226,6 +413,24 @@ public class MainUI extends JFrame {
         }
     }
 
+    private void displayMetadataList(List<JSONObject> metadataList, String title) {
+        JFrame frame = new JFrame(title);
+        frame.setSize(600, 400);
+        frame.setLocationRelativeTo(MainUI.this);
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+        area.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        for (JSONObject metadata : metadataList) {
+            area.append("Name: " + metadata.getString("originalName") + "\n");
+            area.append("Extension: " + metadata.getString("extension") + "\n");
+            area.append("Size: " + metadata.getLong("size") + " bytes\n");
+            area.append("Timestamp: " + metadata.getString("timestamp") + "\n");
+            area.append("------------------------\n");
+        }
+        frame.add(new JScrollPane(area));
+        frame.setVisible(true);
+    }
+
     private class BrowseFileAction implements ActionListener {
         private JTextField targetField;
         private boolean isInput;
@@ -272,8 +477,8 @@ public class MainUI extends JFrame {
                     showError("Password must be at least 8 characters long");
                     return;
                 }
-                if (!outputFileName.isEmpty() && !outputFileName.matches("[a-zA-Z0-9._-]+")) {
-                    showError("Output file name must contain only letters, numbers, dots, or hyphens");
+                if (!outputFileName.isEmpty() && !outputFileName.matches("[^<>:\"/\\\\|?*]+")) {
+                    showError("Output file name contains invalid characters");
                     return;
                 }
 
@@ -345,8 +550,8 @@ public class MainUI extends JFrame {
                     showError("Input file must have .enc extension");
                     return;
                 }
-                if (!outputFileName.isEmpty() && !outputFileName.matches("[a-zA-Z0-9._-]+")) {
-                    showError("Output file name must contain only letters, numbers, dots, or hyphens");
+                if (!outputFileName.isEmpty() && !outputFileName.matches("[^<>:\"/\\\\|?*]+")) {
+                    showError("Output file name contains invalid characters");
                     return;
                 }
 
@@ -461,7 +666,6 @@ public class MainUI extends JFrame {
     private void showError(String message) {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
