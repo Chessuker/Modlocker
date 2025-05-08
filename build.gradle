@@ -1,9 +1,7 @@
 plugins {
-    id 'application'
+    id 'java'          // Needed to compile Java code
+    id 'application'   // Enables running and building an app
 }
-
-group = 'com.example'
-version = '1.0'
 
 repositories {
     mavenCentral()
@@ -14,5 +12,19 @@ dependencies {
 }
 
 application {
-    mainClass = 'MainUI' // ถ้าอยู่ใน package ต้องใส่ให้ครบ เช่น com.example.Main
+    // Fully-qualified class name (with package, if any)
+    mainClass = 'MainUI'
+}
+
+// Optional: make a runnable fat JAR
+jar {
+    manifest {
+        attributes(
+            'Main-Class': application.mainClass
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

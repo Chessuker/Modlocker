@@ -70,7 +70,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\ModLocker-1.0.jar;%APP_HOME%\lib\json-20250107.jar
+set CLASSPATH=%APP_HOME%\lib\ModLocker.jar;%APP_HOME%\lib\json-20250107.jar
 
 
 @rem Execute ModLocker

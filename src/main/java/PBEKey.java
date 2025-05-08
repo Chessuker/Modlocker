@@ -1,3 +1,5 @@
+import java.security.MessageDigest;
+import java.util.Base64;
 
 import javax.crypto.SecretKey;
 
@@ -14,4 +16,11 @@ public abstract class PBEKey {
     public abstract String encodeSalt(byte[] salt);
 
     public abstract byte[] decodeSalt(String encoded);
+
+    public String hashPassword(String password, byte[] salt) throws Exception {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.update(password.getBytes("UTF-8"));
+        digest.update(salt);
+        return Base64.getEncoder().encodeToString(digest.digest());
+    }
 }

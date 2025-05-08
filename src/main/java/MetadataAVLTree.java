@@ -1,17 +1,23 @@
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MetadataAVLTree {
+    // Define AVL tree 
     private class Node {
         String hash;
         String filePath;
@@ -28,7 +34,30 @@ public class MetadataAVLTree {
     }
 
     private Node root;
-    private static final String METADATA_FILE = "metadata.json";
+    private final String metadataFile;
+
+    // Constructor
+    public MetadataAVLTree(String lockerName) {
+        this.metadataFile = lockerName + "_metadata.json";
+        loadFromFile();
+    }
+
+    public static String computeMetadataHash(JSONObject metadata) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] metadataBytes = metadata.toString().getBytes(StandardCharsets.UTF_8);
+        digest.update(metadataBytes);
+        return Base64.getEncoder().encodeToString(digest.digest());
+    }
+
+    public JSONObject getOrLoadMetadata(String filePath, AES aes) throws Exception {
+        JSONObject metadata = getMetadata(filePath);
+        if (metadata == null) {
+            metadata = aes.readMetadata(new File(filePath));
+            String hash = computeMetadataHash(metadata);
+            insert(hash, filePath, metadata);
+        }
+        return metadata;
+    }
 
     private int height(Node node) {
         return node == null ? 0 : node.height;
@@ -59,14 +88,25 @@ public class MetadataAVLTree {
     }
 
     public void insert(String hash, String filePath, JSONObject metadata) {
-        root = insertRec(root, hash, filePath, metadata);
-        saveToFile();
+        // check if parameters are valid
+        if (hash == null || hash.isEmpty()) {
+            throw new IllegalArgumentException("Hash cannot be null");
+        }
+        if (filePath == null || filePath.isEmpty()) {
+            throw new IllegalArgumentException("File path cannot be null");
+        }
+        if (metadata == null) {
+            throw new IllegalArgumentException("Metadata cannot be null");
+        }
+        root = insertRec(root, hash, filePath, metadata); // Insert into AVL tree
+        saveToFile(); // Save to file
     }
 
     private Node insertRec(Node node, String hash, String filePath, JSONObject metadata) {
         if (node == null) {
             return new Node(hash, filePath, metadata);
         }
+        // Insert by comparing hash values
         int cmp = hash.compareTo(node.hash);
         if (cmp < 0) {
             node.left = insertRec(node.left, hash, filePath, metadata);
@@ -78,6 +118,7 @@ public class MetadataAVLTree {
             return node;
         }
 
+        // balance the tree
         node.height = Math.max(height(node.left), height(node.right)) + 1;
         int balance = balanceFactor(node);
 
@@ -99,13 +140,22 @@ public class MetadataAVLTree {
         return node;
     }
 
+    // Get metadata by file path
     public JSONObject getMetadata(String filePath) throws Exception {
+        // get metadata hash from the file
         String hash = computeMetadataHashFromFile(filePath);
+        // check if the hash is valid
         Node node = searchRec(root, hash);
         if (node != null && !node.filePath.equals(filePath)) {
             node.filePath = filePath;
             saveToFile();
         }
+        return node != null ? node.metadata : null;
+    }
+
+    // Get metadata by hash
+    public JSONObject getMetadataByHash(String hash) throws Exception {
+        Node node = searchRec(root, hash);
         return node != null ? node.metadata : null;
     }
 
@@ -115,13 +165,6 @@ public class MetadataAVLTree {
         }
         int cmp = hash.compareTo(node.hash);
         return cmp < 0 ? searchRec(node.left, hash) : searchRec(node.right, hash);
-    }
-
-    public String computeMetadataHash(JSONObject metadata) throws Exception {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        String metadataStr = metadata.toString();
-        digest.update(metadataStr.getBytes("UTF-8"));
-        return Base64.getEncoder().encodeToString(digest.digest());
     }
 
     private String computeMetadataHashFromFile(String filePath) throws Exception {
@@ -151,58 +194,59 @@ public class MetadataAVLTree {
         inOrderTraversal(node.right, result);
     }
 
-    public List<JSONObject> findBySizeRange(long minSize, long maxSize) {
+    public List<JSONObject> filterMetadata(String extension, Long minSize, Long maxSize, Date startTime, Date endTime) {
         List<JSONObject> result = new ArrayList<>();
-        findBySizeRangeRec(root, minSize, maxSize, result);
+        filterMetadataRec(root, extension, minSize, maxSize, startTime, endTime, result);
         return result;
     }
-
-    private void findBySizeRangeRec(Node node, long minSize, long maxSize, List<JSONObject> result) {
+    
+    private void filterMetadataRec(Node node, String extension, Long minSize, Long maxSize, Date startTime, Date endTime, List<JSONObject> result) {
         if (node == null) return;
-        long size = node.metadata.getLong("size");
-        if (size > minSize) findBySizeRangeRec(node.left, minSize, maxSize, result);
-        if (size >= minSize && size <= maxSize) result.add(node.metadata);
-        if (size < maxSize) findBySizeRangeRec(node.right, minSize, maxSize, result);
-    }
-
-    public List<JSONObject> findByTimestampRange(String startTime, String endTime) {
-        List<JSONObject> result = new ArrayList<>();
-        findByTimestampRangeRec(root, startTime, endTime, result);
-        return result;
-    }
-
-    private void findByTimestampRangeRec(Node node, String startTime, String endTime, List<JSONObject> result) {
-        if (node == null) return;
-        String timestamp = node.metadata.getString("timestamp");
-        if (timestamp.compareTo(startTime) > 0) findByTimestampRangeRec(node.left, startTime, endTime, result);
-        if (timestamp.compareTo(startTime) >= 0 && timestamp.compareTo(endTime) <= 0) result.add(node.metadata);
-        if (timestamp.compareTo(endTime) < 0) findByTimestampRangeRec(node.right, startTime, endTime, result);
-    }
-
-    public List<JSONObject> findByComplexCondition(String extension, Long minSize, Long maxSize) {
-        List<JSONObject> result = new ArrayList<>();
-        findByComplexConditionRec(root, extension, minSize, maxSize, result);
-        return result;
-    }
-
-    private void findByComplexConditionRec(Node node, String extension, Long minSize, Long maxSize, List<JSONObject> result) {
-        if (node == null) return;
-        findByComplexConditionRec(node.left, extension, minSize, maxSize, result);
+    
+        // In-order traversal to check all nodes
+        filterMetadataRec(node.left, extension, minSize, maxSize, startTime, endTime, result);
+    
         JSONObject metadata = node.metadata;
         boolean matches = true;
+    
+        // Check extension condition
         if (extension != null && !metadata.getString("extension").equalsIgnoreCase(extension)) {
             matches = false;
         }
-        if (minSize != null && metadata.getLong("size") < minSize) {
+    
+        // Check size range condition
+        long size = metadata.getLong("size");
+        if (minSize != null && size < minSize) {
             matches = false;
         }
-        if (maxSize != null && metadata.getLong("size") > maxSize) {
+        if (maxSize != null && size > maxSize) {
             matches = false;
         }
-        if (matches) result.add(metadata);
-        findByComplexConditionRec(node.right, extension, minSize, maxSize, result);
+    
+        // Check timestamp range condition
+        try {
+            String timestampStr = metadata.getString("timestamp");
+            Date timestamp = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(timestampStr);
+    
+            if (startTime != null && timestamp.before(startTime)) {
+                matches = false;
+            }
+            if (endTime != null && timestamp.after(endTime)) {
+                matches = false;
+            }
+        } catch (java.text.ParseException e) {
+            matches = false; // Skip invalid timestamps
+        }
+    
+        // Add metadata if all conditions match
+        if (matches) {
+            result.add(metadata);
+        }
+    
+        filterMetadataRec(node.right, extension, minSize, maxSize, startTime, endTime, result);
     }
-
+    
+    // Summarize metadata by file extension
     public Map<String, Integer> summarizeByExtension() {
         Map<String, Integer> summary = new HashMap<>();
         summarizeByExtensionRec(root, summary);
@@ -211,15 +255,20 @@ public class MetadataAVLTree {
 
     private void summarizeByExtensionRec(Node node, Map<String, Integer> summary) {
         if (node == null) return;
+        // In-order traversal to check all nodes
         summarizeByExtensionRec(node.left, summary);
+        // Get the file extension from metadata
         String extension = node.metadata.getString("extension");
+        // Update the summary map with the file extension count
         summary.put(extension, summary.getOrDefault(extension, 0) + 1);
         summarizeByExtensionRec(node.right, summary);
     }
 
     public void cleanInvalidMetadata() {
         List<String> hashesToRemove = new ArrayList<>();
+        // Collect hashes of invalid metadata
         collectInvalidMetadataRec(root, hashesToRemove);
+        // Remove invalid metadata from the AVL tree
         for (String hash : hashesToRemove) {
             root = delete(root, hash);
         }
@@ -228,7 +277,9 @@ public class MetadataAVLTree {
 
     private void collectInvalidMetadataRec(Node node, List<String> hashesToRemove) {
         if (node == null) return;
+        // In-order traversal to check all nodes
         collectInvalidMetadataRec(node.left, hashesToRemove);
+        // Check if the file exists
         if (!new File(node.filePath).exists()) {
             hashesToRemove.add(node.hash);
         }
@@ -237,6 +288,7 @@ public class MetadataAVLTree {
 
     private Node delete(Node node, String hash) {
         if (node == null) return null;
+        // Find the node to delete
         int cmp = hash.compareTo(node.hash);
         if (cmp < 0) {
             node.left = delete(node.left, hash);
@@ -251,6 +303,7 @@ public class MetadataAVLTree {
             node.metadata = minNode.metadata;
             node.right = delete(node.right, minNode.hash);
         }
+        // Update height and balance the tree
         node.height = Math.max(height(node.left), height(node.right)) + 1;
         int balance = balanceFactor(node);
         if (balance > 1 && balanceFactor(node.left) >= 0) {
@@ -278,19 +331,22 @@ public class MetadataAVLTree {
     }
 
     public void saveToFile() {
+        // Save the AVL tree to a JSON file
         try {
             JSONArray jsonArray = new JSONArray();
             saveToJson(root, jsonArray);
-            Files.writeString(Paths.get(METADATA_FILE), jsonArray.toString(2));
-        } catch (Exception e) {
+            Files.writeString(Paths.get(metadataFile), jsonArray.toString(2));
+        } catch (IOException | JSONException e) {
             throw new RuntimeException("Failed to save metadata: " + e.getMessage(), e);
         }
     }
 
     private void saveToJson(Node node, JSONArray jsonArray) {
         if (node == null) return;
+        // In-order traversal to save all nodes
         saveToJson(node.left, jsonArray);
         JSONObject json = new JSONObject();
+        // Add metadata to JSON object
         json.put("hash", node.hash);
         json.put("filePath", node.filePath);
         json.put("metadata", node.metadata);
@@ -299,11 +355,16 @@ public class MetadataAVLTree {
     }
 
     public void loadFromFile() {
+        // Load the AVL tree from a JSON file
         try {
-            File file = new File(METADATA_FILE);
+            File file = new File(metadataFile);
+            //  Check if the file exists
             if (file.exists()) {
-                String content = Files.readString(Paths.get(METADATA_FILE));
+                // Read the file content
+                String content = Files.readString(Paths.get(metadataFile));
                 JSONArray jsonArray = new JSONArray(content);
+                root = null;
+                // Parse the JSON array and insert into the AVL tree
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject json = jsonArray.getJSONObject(i);
                     String hash = json.getString("hash");
@@ -312,7 +373,7 @@ public class MetadataAVLTree {
                     insert(hash, filePath, metadata);
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException | JSONException e) {
             throw new RuntimeException("Failed to load metadata: " + e.getMessage(), e);
         }
     }

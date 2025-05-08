@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Base64;
@@ -18,9 +20,6 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
 
 public class AES extends PBEKey {
-    // private static final int ITERATIONS = 65536;
-    // private static final int KEY_LENGTH = 128; // bits
-    // private static final int SALT_LENGTH = 16; // bytes
     private static final int GCM_NONCE_LENGTH = 12;
     private static final int GCM_TAG_LENGTH = 128;
 
@@ -60,37 +59,51 @@ public class AES extends PBEKey {
         return Base64.getDecoder().decode(encoded);
     }
 
-    public SecretKey generateKey(String password) throws Exception {
-        byte[] salt = generateSalt();
-        return deriveKeyFromPassword(password, salt);
-    }
-
     public byte[] nonce() {
         byte[] nonce = new byte[GCM_NONCE_LENGTH];
         new SecureRandom().nextBytes(nonce);
         return nonce;
     }
 
-    public void encryptFile(File inputFile, File outputEncryptedFile, String password, byte[] salt, JSONObject metadata) throws Exception {
+    private void validateInputFile(File inputFile, boolean requireEncExtension) {
         if (!inputFile.exists() || !inputFile.isFile()) {
             throw new IllegalArgumentException("Input file does not exist or is not a file");
         }
+        if (requireEncExtension && !inputFile.getName().endsWith(".enc")) {
+            throw new IllegalArgumentException("Input file must have .enc extension");
+        }
+    }
+
+    private JSONObject readHeaderAndMetadata(FileInputStream fis) throws Exception {
+        byte[] headerLengthBytes = new byte[4];
+        if (fis.read(headerLengthBytes) != 4) {
+            throw new IllegalArgumentException("Invalid header length");
+        }
+        int headerLength = ((headerLengthBytes[0] & 0xFF) << 24) |
+                           ((headerLengthBytes[1] & 0xFF) << 16) |
+                           ((headerLengthBytes[2] & 0xFF) << 8) |
+                           (headerLengthBytes[3] & 0xFF);
+        byte[] metadataBytes = new byte[headerLength];
+        if (fis.read(metadataBytes) != headerLength) {
+            throw new IllegalArgumentException("Invalid metadata");
+        }
+        return new JSONObject(new String(metadataBytes, StandardCharsets.UTF_8));
+    }
+
+    public void encryptFile(File inputFile, File outputEncryptedFile, SecretKey key, byte[] salt, JSONObject metadata) throws Exception {
+        validateInputFile(inputFile, false);
         if (outputEncryptedFile.isDirectory()) {
             throw new IllegalArgumentException("Output path cannot be a directory");
         }
 
-        // Read input file
         byte[] inputBytes = Files.readAllBytes(inputFile.toPath());
         byte[] nonce = nonce();
 
-        // Encrypt
-        SecretKey key = deriveKeyFromPassword(password, salt);
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         GCMParameterSpec spec = new GCMParameterSpec(GCM_TAG_LENGTH, nonce);
         cipher.init(Cipher.ENCRYPT_MODE, key, spec);
         byte[] encryptedBytes = cipher.doFinal(inputBytes);
 
-        // Prepare metadata
         byte[] metadataBytes = metadata.toString().getBytes(StandardCharsets.UTF_8);
         byte[] headerLength = new byte[4];
         int length = metadataBytes.length;
@@ -99,82 +112,38 @@ public class AES extends PBEKey {
         headerLength[2] = (byte) (length >> 8);
         headerLength[3] = (byte) length;
 
-        // Write to file
         File outputFileWithExtension = new File(outputEncryptedFile.getAbsolutePath() + ".enc");
         try (FileOutputStream fos = new FileOutputStream(outputFileWithExtension)) {
-            fos.write(headerLength);      // 4 bytes
-            fos.write(metadataBytes);     // Metadata
-            fos.write(nonce);            // 12 bytes
-            fos.write(salt);             // 16 bytes
-            fos.write(encryptedBytes);   // Ciphertext
+            fos.write(headerLength);
+            fos.write(metadataBytes);
+            fos.write(nonce);
+            fos.write(salt);
+            fos.write(encryptedBytes);
         }
     }
 
     public JSONObject readMetadata(File inputFile) throws Exception {
-        if (!inputFile.exists() || !inputFile.isFile()) {
-            throw new IllegalArgumentException("Input file does not exist or is not a file");
-        }
-        if (!inputFile.getName().endsWith(".enc")) {
-            throw new IllegalArgumentException("Input file must have .enc extension");
-        }
-
+        validateInputFile(inputFile, true);
         try (FileInputStream fis = new FileInputStream(inputFile)) {
-            // Read header length
-            byte[] headerLengthBytes = new byte[4];
-            if (fis.read(headerLengthBytes) != 4) {
-                throw new IllegalArgumentException("Invalid header length");
-            }
-            int headerLength = ((headerLengthBytes[0] & 0xFF) << 24) |
-                               ((headerLengthBytes[1] & 0xFF) << 16) |
-                               ((headerLengthBytes[2] & 0xFF) << 8) |
-                               (headerLengthBytes[3] & 0xFF);
-
-            // Read metadata
-            byte[] metadataBytes = new byte[headerLength];
-            if (fis.read(metadataBytes) != headerLength) {
-                throw new IllegalArgumentException("Invalid metadata");
-            }
-            String metadataJson = new String(metadataBytes, StandardCharsets.UTF_8);
-            return new JSONObject(metadataJson);
+            return readHeaderAndMetadata(fis);
         }
     }
 
-    public void decryptFile(File inputFile, File outputFile, String password) throws Exception {
-        if (!inputFile.exists() || !inputFile.isFile()) {
-            throw new IllegalArgumentException("Input file does not exist or is not a file");
-        }
-        if (!inputFile.getName().endsWith(".enc")) {
-            throw new IllegalArgumentException("Input file must have .enc extension");
-        }
+    public void decryptFile(File inputFile, File outputFile, SecretKey key) throws Exception {
+        validateInputFile(inputFile, true);
         if (outputFile.isDirectory()) {
             throw new IllegalArgumentException("Output path cannot be a directory");
         }
 
         try (FileInputStream fis = new FileInputStream(inputFile)) {
-            // Read header length
-            byte[] headerLengthBytes = new byte[4];
-            if (fis.read(headerLengthBytes) != 4) {
-                throw new IllegalArgumentException("Invalid header length");
-            }
-            int headerLength = ((headerLengthBytes[0] & 0xFF) << 24) |
-                               ((headerLengthBytes[1] & 0xFF) << 16) |
-                               ((headerLengthBytes[2] & 0xFF) << 8) |
-                               (headerLengthBytes[3] & 0xFF);
+            readHeaderAndMetadata(fis);
 
-            // Skip metadata
-            byte[] metadataBytes = new byte[headerLength];
-            if (fis.read(metadataBytes) != headerLength) {
-                throw new IllegalArgumentException("Invalid metadata");
-            }
-
-            // Read nonce, salt, ciphertext
             byte[] nonce = new byte[GCM_NONCE_LENGTH];
             byte[] salt = new byte[SALT_LENGTH];
             if (fis.read(nonce) != GCM_NONCE_LENGTH || fis.read(salt) != SALT_LENGTH) {
                 throw new IllegalArgumentException("Invalid nonce or salt");
             }
 
-            // Read ciphertext
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buffer = new byte[8192];
             int bytesRead;
@@ -183,8 +152,6 @@ public class AES extends PBEKey {
             }
             byte[] ciphertext = baos.toByteArray();
 
-            // Decrypt
-            SecretKey key = deriveKeyFromPassword(password, salt);
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
             GCMParameterSpec spec = new GCMParameterSpec(GCM_TAG_LENGTH, nonce);
             cipher.init(Cipher.DECRYPT_MODE, key, spec);
@@ -193,39 +160,17 @@ public class AES extends PBEKey {
         }
     }
 
-    public byte[] decryptReadBytes(File inputFile, String password) throws Exception {
-        if (!inputFile.exists() || !inputFile.isFile()) {
-            throw new IllegalArgumentException("Input file does not exist or is not a file");
-        }
-        if (!inputFile.getName().endsWith(".enc")) {
-            throw new IllegalArgumentException("Input file must have .enc extension");
-        }
-
+    public byte[] decryptReadBytes(File inputFile, SecretKey key) throws Exception {
+        validateInputFile(inputFile, true);
         try (FileInputStream fis = new FileInputStream(inputFile)) {
-            // Read header length
-            byte[] headerLengthBytes = new byte[4];
-            if (fis.read(headerLengthBytes) != 4) {
-                throw new IllegalArgumentException("Invalid header length");
-            }
-            int headerLength = ((headerLengthBytes[0] & 0xFF) << 24) |
-                               ((headerLengthBytes[1] & 0xFF) << 16) |
-                               ((headerLengthBytes[2] & 0xFF) << 8) |
-                               (headerLengthBytes[3] & 0xFF);
+            readHeaderAndMetadata(fis);
 
-            // Skip metadata
-            byte[] metadataBytes = new byte[headerLength];
-            if (fis.read(metadataBytes) != headerLength) {
-                throw new IllegalArgumentException("Invalid metadata");
-            }
-
-            // Read nonce, salt, ciphertext
             byte[] nonce = new byte[GCM_NONCE_LENGTH];
             byte[] salt = new byte[SALT_LENGTH];
             if (fis.read(nonce) != GCM_NONCE_LENGTH || fis.read(salt) != SALT_LENGTH) {
                 throw new IllegalArgumentException("Invalid nonce or salt");
             }
 
-            // Read ciphertext
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buffer = new byte[8192];
             int bytesRead;
@@ -234,8 +179,6 @@ public class AES extends PBEKey {
             }
             byte[] ciphertext = baos.toByteArray();
 
-            // Decrypt
-            SecretKey key = deriveKeyFromPassword(password, salt);
             Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
             GCMParameterSpec spec = new GCMParameterSpec(GCM_TAG_LENGTH, nonce);
             cipher.init(Cipher.DECRYPT_MODE, key, spec);
@@ -243,8 +186,16 @@ public class AES extends PBEKey {
         }
     }
 
-    public String decryptRead(File inputFile, String password) throws Exception {
-        byte[] decryptedBytes = decryptReadBytes(inputFile, password);
+    public String decryptRead(File inputFile, SecretKey key) throws Exception {
+        byte[] decryptedBytes = decryptReadBytes(inputFile, key);
         return new String(decryptedBytes, StandardCharsets.UTF_8);
+    }
+
+    public String hashMetadata(JSONObject metadata) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] metadataBytes = metadata.toString().getBytes(StandardCharsets.UTF_8);
+        digest.update(metadataBytes);
+        byte[] hashBytes = digest.digest();
+        return Base64.getEncoder().encodeToString(hashBytes);
     }
 }
