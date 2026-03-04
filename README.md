@@ -2,6 +2,7 @@
 
 Modlocker is a Java-based security application designed to encrypt and decrypt sensitive files while securely managing their metadata. It serves as both a practical security tool and an educational framework for secure software development.
 
+Here's a Presentation: https://www.canva.com/design/DAHC9VN5PXU/WIECbG0sQsZ__Febrzhj1Q/view
 ---
 
 ## 1. Cryptography and Security Algorithms
